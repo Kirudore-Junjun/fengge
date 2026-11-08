@@ -1,0 +1,743 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>风格图谱 Style Atlas</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="风格图谱">
+<meta name="theme-color" content="#ECEEEA" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141816" media="(prefers-color-scheme: dark)">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Noto+Sans+SC:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a rack — fixed left rail (styles + views), main column of "device" panels; hero is a live polymeter strip */
+:root{
+  --bg:#ECEEEA; --panel:#F8F9F6; --line:#CDD2CA; --fg:#1C211E; --muted:#5D665F;
+  --accent:#2445C8; --accent-soft:#DCE2FA; --amber:#B86E00; --amber-soft:#F6E7CF; --ok:#2F7D4E; --ok-soft:#DCEFE3; --c1:#2445C8; --c2:#B86E00;
+  --lane-a:#2445C8; --lane-b:#B86E00; --lane-c:#2F7D4E;
+  --f-display:"Bricolage Grotesque","Noto Sans SC",system-ui,sans-serif;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#141816; --panel:#1C211E; --line:#323A35; --fg:#E6EAE5; --muted:#99A39B;
+  --accent:#8EA2FF; --accent-soft:#232C52; --amber:#F0A940; --amber-soft:#3A2C16; --ok:#6CC98F; --ok-soft:#1D3527; --c1:#6A80E6; --c2:#C07C1C;
+  --lane-a:#8EA2FF; --lane-b:#F0A940; --lane-c:#6CC98F; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141816; --panel:#1C211E; --line:#323A35; --fg:#E6EAE5; --muted:#99A39B;
+  --accent:#8EA2FF; --accent-soft:#232C52; --amber:#F0A940; --amber-soft:#3A2C16; --ok:#6CC98F; --ok-soft:#1D3527; --c1:#6A80E6; --c2:#C07C1C;
+  --lane-a:#8EA2FF; --lane-b:#F0A940; --lane-c:#6CC98F; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.65}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.shell{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100vh}
+nav.rail{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;height:100vh;overflow:auto;
+  border-right:1px solid var(--line);padding-block:24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:16px;display:flex;flex-direction:column;gap:22px}
+.brand{font-family:var(--f-display);font-weight:700;font-size:22px;line-height:1.1;letter-spacing:-.01em}
+.brand small{display:block;font-family:var(--f-mono);font-size:11px;font-weight:400;color:var(--muted);letter-spacing:.06em;margin-top:4px}
+.rail h4{margin:0 0 6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.rail ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.rail button{all:unset;cursor:pointer;display:flex;justify-content:space-between;gap:8px;width:100%;box-sizing:border-box;padding:6px 10px;border-radius:6px;font-size:14px}
+.rail button:hover{background:var(--panel)}
+.rail button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:500}
+.rail button .n{font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.rail .soon{color:var(--muted);font-size:13px;padding:4px 10px}
+main{min-width:0;padding-block:24px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:1040px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+.search{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:8px;display:flex;gap:10px;align-items:center}
+.search input{flex:1;min-width:0;font:inherit;font-size:15px;padding:11px 14px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg)}
+.search kbd{font-family:var(--f-mono);font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:2px 6px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.2}
+h1{font-size:clamp(28px,4.5vw,42px);font-weight:700;letter-spacing:-.015em}
+h2{font-size:22px;font-weight:700}
+h3{font-size:17px;font-weight:700}
+.lead{color:var(--muted);max-width:62ch;margin:6px 0 0}
+.eyebrow{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+/* hero polymeter */
+.hero{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:24px;align-items:center}
+.poly{display:flex;flex-direction:column;gap:6px;overflow-x:auto}
+.lane{display:grid;grid-template-columns:28px repeat(20,minmax(10px,1fr));gap:3px;align-items:center}
+.lane span.l{font-family:var(--f-mono);font-size:11px;color:var(--muted)}
+.cell{height:16px;border-radius:2px;background:var(--line);opacity:.55}
+.cell.on{opacity:1}
+.lane.a .cell.on{background:var(--lane-a)} .lane.b .cell.on{background:var(--lane-b)} .lane.c .cell.on{background:var(--lane-c)}
+.cell.ph{outline:2px solid var(--fg);outline-offset:1px}
+.poly .cap{font-size:12px;color:var(--muted);margin-top:4px}
+.stats{display:flex;gap:22px;flex-wrap:wrap;margin-top:14px}
+.stats div{display:flex;flex-direction:column}
+.stats b{font-family:var(--f-mono);font-size:22px;font-weight:500;font-variant-numeric:tabular-nums}
+.stats span{font-size:12px;color:var(--muted)}
+/* generic */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.card .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.card h3 a{color:inherit;text-decoration:none} .card h3 a:hover{color:var(--accent)}
+.chain{font-family:var(--f-mono);font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center}
+.chain i{font-style:normal;opacity:.6}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:2px 8px;border-radius:99px;background:var(--accent-soft);color:var(--accent);border:0;font-family:inherit;cursor:pointer}
+.chip.dev{background:var(--amber-soft);color:var(--amber)}
+.chip.plain{background:transparent;border:1px solid var(--line);color:var(--muted);cursor:default}
+.meta{display:flex;flex-wrap:wrap;gap:4px 14px;font-family:var(--f-mono);font-size:12px;color:var(--muted)}
+.card p{margin:0}
+.card ul{margin:0;padding-left:1.1em}
+.done{all:unset;cursor:pointer;font-size:12px;border:1px solid var(--line);border-radius:99px;padding:2px 9px;white-space:nowrap;color:var(--muted)}
+.done[aria-pressed="true"]{background:var(--ok);border-color:var(--ok);color:var(--panel)}
+.filters{display:flex;flex-wrap:wrap;gap:6px}
+.filters button{font:inherit;font-size:13px;padding:5px 12px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--fg);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+details.sec{font-size:13px;color:var(--muted)}
+details.sec summary{cursor:pointer}
+details.sec ol{margin:6px 0 0;padding-left:1.3em}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:0}
+td.mono,.mono{font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums}
+.steps{counter-reset:s;display:flex;flex-direction:column;gap:12px;list-style:none;padding:0;margin:0}
+.steps>li{counter-increment:s;display:grid;grid-template-columns:40px minmax(0,1fr);gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:14px}
+.steps>li::before{content:counter(s,decimal-leading-zero);font-family:var(--f-mono);font-size:18px;color:var(--accent)}
+.steps p{margin:2px 0 6px}
+.bpm{position:relative;height:84px;margin:8px 8px 0}
+.bpm .axis{position:absolute;left:0;right:0;top:46px;border-top:1px solid var(--line)}
+.bpm .tick{position:absolute;top:50px;font-family:var(--f-mono);font-size:11px;color:var(--muted);transform:translateX(-50%)}
+.bpm .dot{position:absolute;top:38px;width:14px;height:14px;border-radius:50%;background:var(--accent);transform:translateX(-50%);border:2px solid var(--panel)}
+.bpm .dl{position:absolute;font-family:var(--f-mono);font-size:11px;transform:translateX(-50%);white-space:nowrap;color:var(--fg)}
+.empty{color:var(--muted);padding:20px;text-align:center;border:1px dashed var(--line);border-radius:8px}
+.res h3{font-size:14px;color:var(--muted);font-family:var(--f-body);font-weight:500;margin:6px 0}
+mark{background:var(--amber-soft);color:inherit;padding:0 2px;border-radius:2px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+/* stuck */
+.pill{font-size:12px;padding:2px 10px;border-radius:99px;font-weight:500;white-space:nowrap}
+.s-open{background:var(--amber-soft);color:var(--amber)} .s-doing{background:var(--accent-soft);color:var(--accent)} .s-done{background:var(--ok-soft);color:var(--ok)}
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
+.method div{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.method b{font-family:var(--f-mono);font-size:12px;color:var(--accent);font-weight:500}
+.stuck{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:22px;min-width:0}
+.stuck section{display:flex;flex-direction:column;gap:10px;min-width:0}
+.stuck h3{font-size:18px}
+.stuck h4{margin:0;font-size:15px;font-family:var(--f-display)}
+.stuck p{margin:0;max-width:72ch}
+.quote{border-left:3px solid var(--amber);background:var(--amber-soft);padding:10px 14px;border-radius:0 6px 6px 0;max-width:72ch}
+.pts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.pts>div{border:1px solid var(--line);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;background:var(--bg)}
+.nlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:n}
+.nlist li{counter-increment:n;display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px}
+.nlist li::before{content:counter(n);font-family:var(--f-mono);color:var(--accent);font-size:15px;padding-top:1px}
+.nlist p{color:var(--muted)}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.todo label{display:flex;gap:10px;align-items:flex-start;cursor:pointer}
+.todo input{margin-top:5px;accent-color:var(--accent)}
+.todo .src{font-size:12px;color:var(--muted)}
+.statusbar{display:flex;gap:6px;flex-wrap:wrap}
+.statusbar button{font:inherit;font-size:12px;padding:3px 10px;border-radius:99px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.statusbar button[aria-pressed="true"]{border-color:transparent}
+.statusbar button.s-open{background:var(--amber-soft);color:var(--amber)} .statusbar button.s-doing{background:var(--accent-soft);color:var(--accent)} .statusbar button.s-done{background:var(--ok-soft);color:var(--ok)}
+.svgwrap{overflow-x:auto;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px;max-width:520px}
+.svgwrap svg{display:block;width:100%;min-width:320px;height:auto}
+.stepgrid{display:grid;grid-template-columns:96px repeat(16,minmax(16px,1fr));gap:3px;align-items:center;min-width:420px}
+.stepgrid .c{height:18px;border-radius:3px;background:var(--line);opacity:.5}
+.stepgrid .c.on{background:var(--accent);opacity:1}
+.stepgrid .c.beat{box-shadow:inset 0 -2px 0 var(--muted)}
+.stepgrid .l{font-size:12px;color:var(--muted)}
+.chartwrap{overflow-x:auto;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px}
+.chartwrap svg{display:block;width:100%;min-width:640px;height:auto}
+.legend{display:flex;gap:16px;font-size:12.5px;color:var(--muted);flex-wrap:wrap}
+.legend i{display:inline-block;width:18px;height:0;border-top:2px solid var(--c1);vertical-align:middle;margin-right:6px}
+.legend i.d{border-top:2px dashed var(--c2)}
+.stuckbar{flex-direction:row;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-color:var(--amber)}
+/* audio */
+.audiobox{display:flex;flex-direction:column;gap:10px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.audiobox audio{width:100%;height:36px}
+.arow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-size:13.5px}
+.arow .nm{display:flex;flex-direction:column;min-width:0}
+.arow .sz{font-family:var(--f-mono);font-size:11.5px;color:var(--muted)}
+.dlbtn{display:none;font:inherit;font-size:12.5px;padding:4px 11px;border-radius:99px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer;white-space:nowrap}
+.dlbtn:hover{background:var(--accent-soft)}
+.dlbtn.all{background:var(--accent);color:var(--panel)}
+.has-dl .dlbtn{display:inline-flex}
+.dlnote{font-size:12px;color:var(--muted)}
+.has-dl .dlnote{display:none}
+/* reader */
+.reader{display:grid;grid-template-columns:200px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px);display:flex;flex-direction:column;gap:2px;font-size:13px;max-height:calc(100vh - 90px);overflow:auto}
+.toc a{color:var(--muted);text-decoration:none;padding:4px 8px;border-left:2px solid var(--line);line-height:1.4}
+.toc a:hover{color:var(--accent);border-left-color:var(--accent)}
+.rhead{display:flex;flex-direction:column;gap:10px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.back{all:unset;cursor:pointer;font-size:13px;color:var(--accent);width:max-content}
+.prose{max-width:72ch;font-size:15.5px;line-height:1.8;min-width:0}
+.prose h2{font-size:22px;margin:40px 0 12px;padding-top:8px;scroll-margin-top:80px}
+.prose h3{font-size:17px;margin:28px 0 8px;scroll-margin-top:80px}
+.prose p{margin:0 0 14px}
+.prose ul,.prose ol{margin:0 0 14px;padding-left:1.4em}
+.prose li{margin:3px 0}
+.prose li>ul,.prose li>ol{margin:4px 0}
+.prose ul:has(>li>input[type=checkbox]){list-style:none;padding-left:.2em}
+.prose input[type=checkbox]{margin-right:8px;accent-color:var(--accent)}
+.prose strong{font-weight:700}
+.prose code{font-family:var(--f-mono);font-size:.86em;background:var(--accent-soft);color:var(--fg);padding:1px 5px;border-radius:4px}
+.prose pre{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;overflow-x:auto;margin:0 0 16px}
+.prose pre code{background:none;padding:0;font-size:13px;line-height:1.6}
+.prose blockquote{margin:0 0 14px;padding:10px 14px;border-left:3px solid var(--amber);background:var(--amber-soft);border-radius:0 6px 6px 0}
+.prose blockquote p:last-child{margin:0}
+.prose .tw{overflow-x:auto;margin:0 0 18px;border:1px solid var(--line);border-radius:8px;background:var(--panel)}
+.prose table{font-size:13.5px;line-height:1.55}
+.prose th{background:var(--bg);color:var(--fg);font-weight:600;letter-spacing:0;font-size:13px}
+.prose td,.prose th{min-width:90px}
+.prose hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+.snip{font-size:13px;color:var(--muted)}
+.chip.kw{background:var(--amber-soft);color:var(--amber)}
+.chip.kw.sel{background:var(--amber);color:var(--panel)}
+/* songs drill-down */
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--muted)}
+.crumbs a{text-decoration:none} .crumbs b{color:var(--fg);font-weight:500}
+.acard{text-decoration:none;color:inherit;transition:border-color .15s}
+.acard:hover{border-color:var(--accent)} .acard:hover h3{color:var(--accent)}
+.acard .albums{display:flex;flex-direction:column;gap:2px;font-size:13px;color:var(--muted)}
+.acard .albums i{font-style:normal;font-size:11px;opacity:.8}
+.hrow{display:flex;align-items:center;gap:8px}
+.hbar{flex:1;height:4px;border-radius:2px;background:var(--line);overflow:hidden;min-width:60px}
+.hbar i{display:block;height:100%;background:var(--ok)}
+.album{gap:12px}
+.srows{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.srow{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 4px;border-top:1px solid var(--line)}
+.srows.flat .srow,.srow.nonum{grid-template-columns:minmax(0,1fr) auto}
+.srows.flat .srow .no,.srow.nonum .no{display:none}
+.srow:first-child{border-top:0}
+.srow .no{font-size:12px;color:var(--muted)}
+.srow .sl{display:flex;flex-direction:column;min-width:0;text-decoration:none;color:var(--fg)}
+.srow .sl b{font-weight:500}
+.srow .sl:hover b{color:var(--accent)}
+.srow .who{font-size:12px;color:var(--muted)}
+.srow .fl{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hmini{all:unset;cursor:pointer;font-size:11.5px;border:1px solid var(--line);border-radius:99px;padding:1px 8px;color:var(--muted);white-space:nowrap}
+.hmini[aria-pressed="true"]{background:var(--ok-soft);border-color:transparent;color:var(--ok)}
+.kwbox summary{cursor:pointer;list-style:none} .kwbox summary::-webkit-details-marker{display:none}
+.kwbox summary::before{content:"▸ ";color:var(--muted)} .kwbox[open] summary::before{content:"▾ "}
+.pn{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:13.5px}
+.pn a{text-decoration:none}
+.song .feel{margin:0;padding:8px 12px;border-left:3px solid var(--amber);background:var(--amber-soft);border-radius:0 6px 6px 0;font-size:14px}
+@media (max-width:820px){
+  .reader{grid-template-columns:1fr}
+  .toc{position:static;max-height:none;flex-direction:row;flex-wrap:nowrap;overflow-x:auto;gap:6px;padding-bottom:4px}
+  .toc a{white-space:nowrap;border:1px solid var(--line);border-radius:99px;padding:3px 10px}
+  .shell{grid-template-columns:1fr}
+  nav.rail{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding-block:14px;padding-right:max(16px,env(safe-area-inset-right,0px));gap:12px}
+  .rail .views ul{flex-direction:row;overflow-x:auto;gap:4px}
+  .rail .views button{white-space:nowrap;width:auto}
+  .rail .stylebox{display:none}
+  .hero,.two{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){.cell{transition:none}}
+</style>
+
+<div class="shell">
+  <nav class="rail" aria-label="导航">
+    <div class="brand">风格图谱<small>STYLE ATLAS · 学习手册库</small></div>
+    <div class="views"><h4>视图</h4><ul id="viewNav"></ul></div>
+    <div class="stylebox"><h4>风格</h4><ul id="styleNav"></ul><div class="soon" id="soonNav"></div></div>
+  </nav>
+  <main>
+    <div class="wrap">
+      <div class="search"><input id="q" type="search" placeholder="搜索手册、技巧、设备、术语…  例如：Jump、Olson、Mixolydian、Operator" aria-label="搜索"><kbd>/</kbd></div>
+      <section id="view"></section>
+    </div>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const DOC = id => `https://claude.ai/code/artifact/${id}`;
+let STYLES=[],NEXT_STYLES=[],MANUALS=[],TECH=[],techById={},PATH=[],LISTEN=[],CHEATS=[],GLOSS=[],SONGS=[],songById={},STUCK=[],AUDIO={},mById={},ready=false;
+const BODY={},PLAIN={};
+function cleanMd(src){
+  const lines=src.split("\n");
+  if(/^# /.test(lines[0]))lines.shift();
+  while(lines.length&&!lines[0].trim())lines.shift();
+  if(/·\s*@/.test(lines[0]||""))lines.shift();
+  return lines.join("\n").replace(/^&#91;embedded content: (.*?)\\?\]\s*$/gm,(m,c)=>`> 原手册此处有一张交互图：${c}。图在网站里无法显示，需要时可打开原手册查看。`);
+}
+
+/* ---------- songs ---------- */
+let heard={}; try{heard=JSON.parse(localStorage.getItem("atlas-heard")||"{}")}catch(e){}
+let songRole="全部", songKw=null;
+
+function songCard(s){
+  const on=!!heard[s.id];
+  const q=encodeURIComponent(`${s.a} ${s.t.replace(/（.*?）/g,"")}`);
+  return `<article class="card song" id="s-${s.id}">
+   <div class="top"><div><div class="eyebrow">${esc(s.role)}${s.y?` · ${s.y}`:""}</div>
+     <h3>${esc(s.t)}</h3><div style="color:var(--muted);font-size:13px">${esc(s.a)}${s.al?` · <i>${esc(s.al)}</i>`:""}</div></div>
+     <button class="done" data-heard="${s.id}" aria-pressed="${on}">${on?"✓ 已听":"标记已听"}</button></div>
+   ${s.feel?`<p class="feel">${esc(s.feel)}</p>`:""}
+   ${s.hear?`<p style="font-size:14px"><span class="eyebrow" style="margin-right:6px">听点</span>${esc(s.hear)}</p>`:""}
+   ${s.facts?`<p style="font-size:13.5px;color:var(--muted)"><span class="eyebrow" style="margin-right:6px">背景与采样</span>${esc(s.facts)}</p>`:""}
+   ${s.harm?`<div class="mono" style="font-size:12.5px;background:var(--bg);border-radius:6px;padding:6px 9px">${esc(s.harm)}</div>`:""}
+   ${AUDIO[s.id]?audioBox(s.id):""}
+   <div class="chips">${s.kw.map(k=>`<button class="chip kw${songKw===k?" sel":""}" data-kw="${esc(k)}">${esc(k)}</button>`).join("")}</div>
+   ${s.tech.length?`<div class="chips" style="align-items:center"><span style="font-size:12px;color:var(--muted)">技巧</span>${s.tech.map(t=>`<button class="chip" data-tech="${t}">${esc(techById[t].name)}</button>`).join("")}</div>`:""}
+   <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px">
+     <span>${s.src.length?`出自：${s.src.map(manualLink).join("、")}`:(s.id==="tom-quibble"?`<a href="#stuck">见卡点与对策</a>`:"")}</span>
+     <a href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">在 YouTube 搜索 ↗</a></div>
+  </article>`;
+}
+/* songs: artist → album → song */
+const DEEP=r=>/听析|跟做/.test(r);
+const aHash=a=>"#songs/a/"+encodeURIComponent(a);
+function artistsIndex(){
+  const by={};SONGS.forEach(s=>(by[s.a]=by[s.a]||[]).push(s));
+  return Object.entries(by).map(([a,ss])=>{
+    const al={};ss.forEach(s=>{const k=s.al||"单曲 / 未注明专辑";(al[k]=al[k]||[]).push(s)});
+    const albums=Object.entries(al).map(([n,list])=>({n,list,y:list.find(x=>x.y)?.y||null})).sort((x,y)=>(y.list.length-x.list.length)||((x.y||9999)-(y.y||9999)));
+    const ms=[...new Set(ss.flatMap(s=>s.src))].filter(id=>mById[id]);
+    return {a,ss,albums,ms,main:ss.some(s=>DEEP(s.role)),style:(STYLES.find(x=>x.id===ss[0].style)||{}).name||""};
+  }).sort((x,y)=>y.ss.length-x.ss.length||x.a.localeCompare(y.a));
+}
+function heardBar(ss){const n=ss.filter(s=>heard[s.id]).length,p=Math.round(n/ss.length*100);
+  return `<div class="hbar" title="已听 ${n}/${ss.length}"><i style="width:${p}%"></i></div><span class="mono" style="font-size:11.5px;color:var(--muted)">已听 ${n}/${ss.length}</span>`}
+function heardMini(s){const on=!!heard[s.id];return `<button class="hmini" data-heard="${s.id}" aria-pressed="${on}" aria-label="${on?"已听":"标记已听"}">${on?"✓ 已听":"标记已听"}</button>`}
+function songRow(s,i,showWho){
+  return `<li class="srow${i==null?" nonum":""}"><span class="no mono">${i==null?"":String(i+1).padStart(2,"0")}</span>
+   <a href="#song/${s.id}" class="sl"><b>${esc(s.t)}</b>${showWho?`<span class="who">${esc(s.a)}${s.al?" · "+esc(s.al):""}</span>`:""}${s.feel?`<span class="fl">${esc(s.feel)}</span>`:""}</a>
+   ${heardMini(s)}</li>`}
+function crumbs(parts){return `<nav class="crumbs" aria-label="位置">${parts.map(([t,h],i)=>i<parts.length-1?`<a href="${h}">${esc(t)}</a><span>›</span>`:`<b>${esc(t)}</b>`).join("")}</nav>`}
+function vSongs(){
+  const A=artistsIndex(), main=A.filter(x=>x.main), rest=A.filter(x=>!x.main);
+  const cnt={};SONGS.forEach(s=>s.kw.forEach(k=>cnt[k]=(cnt[k]||0)+1));
+  const cloud=Object.entries(cnt).filter(([k,n])=>n>1).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
+  const nHeard=SONGS.filter(s=>heard[s.id]).length;
+  const kwBox=`<details class="card kwbox"${songKw?" open":""}><summary><span class="eyebrow">按关键词找曲目</span> <span style="font-size:13px;color:var(--muted)">${cloud.length} 个常用词</span></summary>
+     <div class="chips" style="margin-top:10px">${cloud.map(([k,n])=>`<button class="chip kw${songKw===k?" sel":""}" data-kw="${esc(k)}">${esc(k)} <span class="mono" style="opacity:.6">${n}</span></button>`).join("")}</div></details>`;
+  const head=`<div><h1>曲目库</h1><p class="lead">${A.length} 位音乐人，${SONGS.length} 首曲目，已听 ${nHeard} 首。先选音乐人，再进专辑，点曲名看完整听点。</p></div>`;
+  if(songKw){const list=SONGS.filter(s=>s.kw.includes(songKw));
+    return head+kwBox+`<section><div style="display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin-bottom:10px"><h2>关键词：${esc(songKw)}</h2><span class="mono" style="color:var(--muted)">${list.length} 首</span><button class="back" data-kw="">清除筛选</button></div>
+      <ol class="srows">${list.map(s=>songRow(s,null,true)).join("")}</ol></section>`}
+  const groups={};rest.forEach(x=>x.ss.forEach(s=>(groups[s.role]=groups[s.role]||[]).push(s)));
+  return head+`<section><h2 style="margin-bottom:12px">听析过的音乐人</h2><div class="grid artists">${main.map(x=>`<a class="card acard" href="${aHash(x.a)}">
+      <div class="eyebrow">${esc(x.style)}</div><h3>${esc(x.a)}</h3>
+      <div class="meta"><span>${x.albums.length} 张专辑 / 合集</span><span>${x.ss.length} 首</span>${x.ms.length?`<span>${x.ms.length} 份手册</span>`:""}</div>
+      <div class="albums">${x.albums.slice(0,3).map(al=>`<span>${esc(al.n)}${al.y?` <i class="mono">${al.y}</i>`:""}</span>`).join("")}${x.albums.length>3?`<span>…</span>`:""}</div>
+      <div class="hrow">${heardBar(x.ss)}</div></a>`).join("")}</div></section>
+   ${(()=>{const has=new Set(SONGS.map(x=>x.a));const L=LISTEN.filter(l=>!has.has(l.who)&&!has.has(l.who.split(" / ")[0]));
+     return L.length?`<section><h2 style="margin-bottom:4px">待听的参考音乐人</h2><p class="lead" style="margin-bottom:12px">手册里推荐过、还没有具体曲目的音乐人。听的时候带着对应的技巧去听。</p>
+     <div class="grid">${L.map(l=>`<article class="card" style="gap:6px"><div class="eyebrow">${esc(l.tag)}</div><h3>${esc(l.who)}</h3><p style="font-size:14px">${esc(l.why)}</p>
+      <div class="chips"><button class="chip" data-tech="${l.link}">${esc(techById[l.link].name)}</button></div></article>`).join("")}</div></section>`:""})()}
+   ${kwBox}
+   <section><h2 style="margin-bottom:4px">零散参考</h2><p class="lead" style="margin-bottom:12px">手册里顺带提到的曲目：和声参考、采样来源、听辨对照。</p>
+    <div class="two">${Object.entries(groups).map(([g,ss])=>`<div class="card" style="gap:6px"><div class="eyebrow">${esc(g)} · ${ss.length}</div><ol class="srows flat">${ss.map(s=>songRow(s,null,true)).join("")}</ol></div>`).join("")}</div></section>`;
+}
+function vArtist(name){
+  const x=artistsIndex().find(y=>y.a===name);if(!x)return `<div class="empty">没有找到这位音乐人。<a href="#songs">回到曲目库</a></div>`;
+  const L=LISTEN.find(l=>l.who.split(" / ")[0]===x.a||l.who===x.a);
+  return crumbs([["曲目库","#songs"],[x.a]])+`<div><div class="eyebrow">${esc(x.style)}</div><h1>${esc(x.a)}</h1>
+    ${L?`<p class="lead">${esc(L.why)}</p><div class="chips" style="margin-top:6px"><button class="chip" data-tech="${L.link}">${esc(techById[L.link].name)}</button></div>`:""}
+    <div class="meta" style="margin-top:8px"><span>${x.ss.length} 首</span><span>${x.albums.length} 张专辑 / 合集</span></div></div>
+   ${x.ms.length?`<div class="chips" style="align-items:center"><span class="eyebrow" style="margin-right:4px">相关手册</span>${x.ms.map(id=>`<a class="chip plain" style="cursor:pointer;text-decoration:none" href="#read-${id}">${esc(mById[id].title)}</a>`).join("")}</div>`:""}
+   ${x.albums.map(al=>{const ms=[...new Set(al.list.flatMap(s=>s.src))].filter(id=>mById[id]);
+     return `<section class="card album"><div class="top"><div><h2>${esc(al.n)}</h2><div class="meta" style="margin-top:4px">${al.y?`<span>${al.y}</span>`:""}<span>${al.list.length} 首</span><span>${esc([...new Set(al.list.map(s=>s.role))].join(" / "))}</span></div></div>
+       <div class="hrow" style="min-width:120px">${heardBar(al.list)}</div></div>
+       ${ms.length?`<div style="font-size:13px">出自：${ms.map(manualLink).join("、")}</div>`:""}
+       <ol class="srows">${al.list.map((s,i)=>songRow(s,al.list.length>1?i:null)).join("")}</ol></section>`}).join("")}`;
+}
+function vSong(id){
+  const s=songById[id];if(!s)return `<div class="empty">没有找到这首曲目。<a href="#songs">回到曲目库</a></div>`;
+  const sib=SONGS.filter(x=>x.a===s.a&&(x.al||"")===(s.al||"")),i=sib.indexOf(s);
+  const prev=sib[i-1],next=sib[i+1];
+  return crumbs([["曲目库","#songs"],[s.a,aHash(s.a)],[s.al||"单曲",aHash(s.a)],[s.t]])+
+   `<div style="max-width:760px;display:flex;flex-direction:column;gap:14px">${songCard(s)}
+    ${sib.length>1?`<div class="pn">${prev?`<a href="#song/${prev.id}">← ${esc(prev.t)}</a>`:"<span></span>"}<span class="mono" style="color:var(--muted);font-size:12px">${i+1} / ${sib.length}</span>${next?`<a href="#song/${next.id}">${esc(next.t)} →</a>`:"<span></span>"}</div>`:""}</div>`;
+}
+
+const STATUS={open:"卡住",doing:"解决中",done:"已解决"};
+let DL=null;
+const BROWSER_DL={save:async({filename,data})=>{const u=URL.createObjectURL(data),a=document.createElement("a");a.href=u;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),60000)}};
+(async()=>{try{DL=window.claude&&window.claude.use?await window.claude.use("downloads"):null}catch(e){DL=null}if(!DL)DL=BROWSER_DL;document.documentElement.classList.toggle("has-dl",!!DL)})();
+function audioBox(id,only){const a=AUDIO[id];if(!a)return "";const fs=a.files.filter(f=>!only||only.includes(f.path));
+  const total=fs.reduce((t,f)=>t+f.mb,0);
+  return `<div class="audiobox">${fs.map((f,i)=>`<div class="arow"><span class="nm"><b style="font-weight:500">${esc(f.label)}</b><span class="sz">${esc(f.note)} · ${f.mb} MB</span></span><button class="dlbtn" data-dl="${id}" data-f="${a.files.indexOf(f)}">下载</button></div>${f.play?`<audio controls preload="none" src="${f.path}"></audio>`:""}`).join("")}
+   ${fs.length>1?`<div class="arow"><span class="sz">全部 ${fs.length} 个文件 · 约 ${total.toFixed(1)} MB</span><button class="dlbtn all" data-dl="${id}" data-f="all" data-only="${only?only.join("|"):""}">全部打包下载</button></div>`:""}
+   <span class="dlnote">下载按钮只在 claude.ai 里打开这个页面时出现。文件会打包成 zip 保存。</span></div>`;
+}
+async function getBin(f){
+  try{const r=await fetch(f.path);if(r.ok)return await r.blob()}catch(e){}
+  await loadScript(f.path+".b64.js").catch(()=>{throw {message:"文件读取失败："+f.label}});
+  const b64=(window.ATLAS_BIN||{})[f.path];if(!b64)throw {message:"文件读取失败："+f.label};
+  const bin=atob(b64),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+  delete window.ATLAS_BIN[f.path];return new Blob([u]);
+}
+async function doDownload(btn){
+  const a=AUDIO[btn.dataset.dl];if(!a||!DL)return;
+  const only=btn.dataset.only?btn.dataset.only.split("|"):null;
+  const files=btn.dataset.f==="all"?a.files.filter(f=>!only||only.includes(f.path)):[a.files[+btn.dataset.f]];
+  const old=btn.textContent;btn.disabled=true;btn.textContent="打包中…";
+  try{
+    if(!window.JSZip)throw {message:"打包工具没有加载成功，刷新页面再试"};
+    const zip=new JSZip();
+    for(const f of files){zip.file(f.name,await getBin(f))}
+    const blob=await zip.generateAsync({type:"blob",compression:"STORE"});
+    const fname=files.length===1?files[0].name.replace(/\.[a-z0-9]+$/i,"")+".zip":a.song+"（"+files.length+" 个文件）.zip";
+    await DL.save({filename:fname,data:blob});btn.textContent="已保存";
+  }catch(e){btn.textContent=e&&e.code==="declined"?"已取消":(e&&e.code?"无法保存":"出错了");if(e&&e.message&&!e.code)console.warn(e.message)}
+  setTimeout(()=>{btn.textContent=old;btn.disabled=false},2500);
+}
+
+/* ---------- state ---------- */
+const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let done=store.get("atlas-done",{});
+let curStyle="all", curCat="全部";
+const VIEWS=[["home","总览"],["manuals","手册库"],["songs","曲目库"],["techniques","技巧索引"],["path","学习路线"],["stuck","卡点与对策"],["ref","设备与速查"],["add","添加新风格"]];
+const ALIAS={devices:["ref","devices"],cheats:["ref","cheats"],listen:["songs",null]};
+let refTab="devices";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const view=document.getElementById("view");
+
+function manualLink(id){const m=mById[id];return `<a href="#read-${id}">${esc(m.title)}</a>`}
+function doneBtn(id){const on=!!done[id];return `<button class="done" data-done="${id}" aria-pressed="${on}">${on?"✓ 已练":"标记已练"}</button>`}
+
+function manualCard(m,snip){
+  return `<article class="card">
+   <div class="top"><div><div class="eyebrow">${esc(m.cat)} · ${m.date}</div><h3><a href="#read-${m.id}">${esc(m.title)}</a></h3><div style="color:var(--muted);font-size:13px">${esc(m.sub)}</div></div>${doneBtn(m.id)}</div>
+   <div class="meta">${m.meta.map(esc).join("<span>·</span>")}</div>
+   <p>${esc(m.sum)}</p>${snip?`<p class="snip">…${snip}…</p>`:""}
+   <div class="chips">${m.tech.map(t=>`<button class="chip" data-tech="${t}">${esc(techById[t].name)}</button>`).join("")}</div>
+   <div class="chain">${m.devices.map(d=>`<span>${esc(d)}</span>`).join("<i>→</i>")}</div>
+   <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center">
+     <details class="sec"><summary>章节（${m.secs.length}）</summary><ol>${m.secs.map(s=>`<li>${esc(s)}</li>`).join("")}</ol></details>
+     <a href="#read-${m.id}" style="font-size:13px;font-weight:500">阅读全文 →</a></div>
+  </article>`;
+}
+
+/* ---------- reader ---------- */
+function renderMd(src){
+  if(!window.marked)return `<pre style="white-space:pre-wrap">${esc(src)}</pre>`;
+  const html=marked.parse(src,{gfm:true,breaks:false});
+  const box=document.createElement("div");box.innerHTML=html;
+  box.querySelectorAll("script,iframe,object,embed,style").forEach(n=>n.remove());
+  box.querySelectorAll("*").forEach(n=>[...n.attributes].forEach(a=>{if(/^on/i.test(a.name)||(a.name==="href"&&/^\s*javascript:/i.test(a.value)))n.removeAttribute(a.name)}));
+  box.querySelectorAll("a[href]").forEach(a=>{if(!a.getAttribute("href").startsWith("#")){a.target="_blank";a.rel="noopener"}});
+  box.querySelectorAll("table").forEach(t=>{const w=document.createElement("div");w.className="tw";t.replaceWith(w);w.appendChild(t)});
+  box.querySelectorAll("input[type=checkbox]").forEach(c=>c.removeAttribute("disabled"));
+  let n=0;box.querySelectorAll("h2,h3").forEach(h=>h.id="h-"+(n++));
+  return box.innerHTML;
+}
+function vRead(id){
+  const m=mById[id];
+  if(!m||!BODY[id])return `<div class="empty">找不到这份手册。<a href="#manuals">回到手册库</a></div>`;
+  const body=renderMd(BODY[id]);
+  const box=document.createElement("div");box.innerHTML=body;
+  const toc=[...box.querySelectorAll("h2")].map(h=>`<a href="#read-${id}" data-jump="${h.id}">${esc(h.textContent)}</a>`).join("");
+  return `<div class="rhead"><button class="back" data-back="1">← 返回</button>
+     <div class="eyebrow">${esc(STYLES.find(s=>s.id===m.style).name)} · ${esc(m.cat)} · ${m.date}</div>
+     <h1>${esc(m.title)}</h1><div style="color:var(--muted)">${esc(m.sub)}</div>
+     <div class="meta">${m.meta.map(esc).join("<span>·</span>")}</div>
+     <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">${doneBtn(m.id)}${m.tech.map(t=>`<button class="chip" data-tech="${t}">${esc(techById[t].name)}</button>`).join("")}</div>
+     ${(()=>{const ss=SONGS.filter(s=>s.src.includes(id));return ss.length?`<div style="font-size:13px"><span class="eyebrow" style="margin-right:6px">提到的曲目 ${ss.length}</span>${ss.slice(0,8).map(s=>esc(s.t)).join(" · ")}${ss.length>8?" …":""} <a href="#songs">在曲目库查看 →</a></div>`:""})()}</div>
+   <div class="reader"><nav class="toc" aria-label="目录">${toc}</nav><article class="prose">${body}
+     <hr><p class="snip">${m.doc?"本页是原手册的副本，导出于 2026-10-30。原手册之后的修改不会自动同步，需要时让 Claude 更新网站。":"这份笔记直接写在网站里，没有单独的手册。需要修改时让 Claude 更新网站。"}</p></article></div>`;
+}
+
+/* ---------- hero polymeter ---------- */
+function heroPoly(){
+  const lanes=[["a",4],["b",3],["c",5]];
+  return `<div class="poly" aria-label="多节拍示意：4、3、5 步循环，前 20 步">${lanes.map(([k,n])=>`<div class="lane ${k}"><span class="l">${n} 步</span>${Array.from({length:20},(_,i)=>`<span class="cell ${i%n===0?"on":""}" data-i="${i}"></span>`).join("")}</div>`).join("")}<div class="cap">三条只开第 1 格的音序器，长度 4 / 3 / 5，要到第 60 步才重新对齐。</div></div>`;
+}
+let phTimer=null;
+function startPlayhead(){
+  clearInterval(phTimer);
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  let i=0;phTimer=setInterval(()=>{const cells=document.querySelectorAll(".poly .cell");if(!cells.length){clearInterval(phTimer);return}
+    cells.forEach(c=>c.classList.toggle("ph",+c.dataset.i===i));i=(i+1)%20},210);
+}
+
+/* ---------- views ---------- */
+function vHome(){
+  const nM=MANUALS.length, nD=new Set(MANUALS.flatMap(m=>m.devices)).size, nDone=MANUALS.filter(m=>done[m.id]).length;
+  const s=STYLES[0];
+  const bpms=[["半生成式",120],["Aphex",141],["60 分钟",142],["Alt Melody",165],["Garble",167]];
+  const lo=110,hi=175,pos=v=>((v-lo)/(hi-lo)*100).toFixed(1);
+  const recent=[...MANUALS].sort((a,b)=>b.date.localeCompare(a.date)).slice(0,4);
+  return `
+  <div class="hero">
+    <div><div class="eyebrow">个人音乐风格知识库</div><h1>从 IDM 开始的风格图谱</h1>
+      <p class="lead">${nM} 份学习手册按风格、技巧和设备交叉索引。以后学新风格，手册加进来，技巧会自动和已有内容连起来。</p>
+      <div class="stats"><div><b>${nM}</b><span>手册</span></div><div><b>${TECH.length}</b><span>可复用技巧</span></div><div><b>${nD}</b><span>设备</span></div><div><b>${SONGS.length}</b><span>曲目</span></div><div><b>${nDone}/${nM}</b><span>已练</span></div></div>
+    </div>${heroPoly()}
+  </div>
+  <section class="two">
+    <div class="card"><div class="eyebrow">风格档案 · ${esc(s.status)}</div><h2>${esc(s.name)}</h2><p>${esc(s.gist)}</p><ul>${s.traits.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></div>
+    <div class="card"><div class="eyebrow">你学过的工程速度</div><h3>IDM 工程的 BPM 分布</h3>
+      <div class="bpm">${bpms.map(([n,v],k)=>`<span class="dot" style="left:${pos(v)}%"></span><span class="dl" style="left:${pos(v)}%;top:${k%2?2:18}px">${v} ${esc(n)}</span>`).join("")}
+        <div class="axis"></div>${[120,140,160].map(v=>`<span class="tick" style="left:${pos(v)}%">${v}</span>`).join("")}</div>
+      <p style="font-size:13px;color:var(--muted)">数据来自各手册解析的工程文件。Garble 录制素材时用的是 60 BPM。</p>
+    </div>
+  </section>
+  ${(()=>{const open=STUCK.filter(s=>statusOf(s)!=="done");return open.length?`<section class="card stuckbar"><div><div class="eyebrow">当前卡点 · ${open.length}</div><h3 style="margin-top:4px">${open.map(s=>esc(s.title)).join("、")}</h3></div><button class="chip" data-view="stuck">查看对策 →</button></section>`:""})()}
+  <section><div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap"><h2>最近的手册</h2><a href="#manuals">全部 ${nM} 份 →</a></div>
+    <div class="grid" style="margin-top:12px">${recent.map(manualCard).join("")}</div></section>`;
+}
+function vManuals(){
+  const cats=["全部",...new Set(MANUALS.map(m=>m.cat))];
+  let list=MANUALS.filter(m=>(curStyle==="all"||m.style===curStyle)&&(curCat==="全部"||m.cat===curCat)).sort((a,b)=>b.date.localeCompare(a.date));
+  const sName=curStyle==="all"?"全部风格":STYLES.find(s=>s.id===curStyle).name;
+  return `<div><h1>手册库</h1><p class="lead">${esc(sName)} · ${list.length} 份。点标题打开原手册，点技巧标签跳到技巧索引。</p></div>
+   <div class="filters" role="group" aria-label="分类">${cats.map(c=>`<button data-cat="${c}" aria-pressed="${c===curCat}">${c}</button>`).join("")}</div>
+   ${list.length?`<div class="grid">${list.map(manualCard).join("")}</div>`:`<div class="empty">这个分类下还没有手册。</div>`}`;
+}
+function vTech(focus){
+  const kinds=[...new Set(TECH.map(t=>t.kind))];
+  return `<div><h1>技巧索引</h1><p class="lead">从 ${MANUALS.length} 份手册里提炼出的 ${TECH.length} 个可复用技巧。同一个技巧出现在多份手册里，说明它是这个风格的“通用词汇”。</p></div>
+  ${kinds.map(k=>`<section><div class="eyebrow" style="margin-bottom:8px">${esc(k)}</div><div class="grid">${TECH.filter(t=>t.kind===k).map(t=>`
+   <article class="card" id="t-${t.id}" ${focus===t.id?'style="border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-soft)"':""}>
+    <div class="top"><h3>${esc(t.name)}</h3><span class="chip plain">${t.manuals.length} 份手册</span></div>
+    <p>${esc(t.line)}</p><p style="font-size:13px;color:var(--muted)">${esc(t.how)}</p>
+    ${t.manuals.length?`<div style="font-size:13px">出现在：${t.manuals.map(manualLink).join("、")}</div>`:""}
+   </article>`).join("")}</div></section>`).join("")}`;
+}
+function vDevices(){
+  const map={};MANUALS.forEach(m=>m.devices.forEach(d=>(map[d]=map[d]||[]).push(m.id)));
+  const rows=Object.entries(map).sort((a,b)=>b[1].length-a[1].length||a[0].localeCompare(b[0]));
+  return `<p class="lead">想研究某个设备时，从这里找到所有用过它的手册。按使用次数排序。</p>
+  <div class="tbl"><table><thead><tr><th>设备</th><th>次数</th><th>出现在</th></tr></thead><tbody>
+  ${rows.map(([d,ids])=>`<tr><td class="mono">${esc(d)}</td><td class="mono">${ids.length}</td><td>${ids.map(manualLink).join("、")}</td></tr>`).join("")}
+  </tbody></table></div>`;
+}
+function vPath(){
+  return `<div><h1>学习路线</h1><p class="lead">把现有手册排成一条由浅入深的路线。每完成一份手册，在卡片上标记“已练”，这里会同步显示进度。</p></div>
+  <ol class="steps">${PATH.map(p=>{const n=p.m.filter(id=>done[id]).length;return `<li><div><h3>${esc(p.t)}</h3><p style="color:var(--muted)">${esc(p.d)}</p>
+   <div class="chips" style="align-items:center">${p.m.map(id=>`<span style="display:inline-flex;gap:6px;align-items:center;margin-right:10px">${manualLink(id)} ${doneBtn(id)}</span>`).join("")}</div>
+   <div class="mono" style="color:var(--muted);margin-top:6px">${n}/${p.m.length} 完成</div></div></li>`}).join("")}</ol>`;
+}
+function vCheats(){
+  return `<p class="lead">从各手册里抽出来、做音乐时最常需要回查的数字和规则。</p>
+  <div class="tbl"><table><thead><tr><th>项目</th><th>规则</th><th>备注</th></tr></thead><tbody>
+   ${CHEATS.map(r=>`<tr><td>${esc(r[0])}</td><td class="mono">${esc(r[1])}</td><td style="color:var(--muted)">${esc(r[2])}</td></tr>`).join("")}</tbody></table></div>
+`;
+}
+function vGloss(){
+  return `<p class="lead">手册里反复出现的乐理和制作术语。</p><div class="tbl"><table><tbody>${GLOSS.map(g=>`<tr><td style="white-space:nowrap">${esc(g[0])}</td><td>${esc(g[1])}</td></tr>`).join("")}</tbody></table></div>`;
+}
+function vRef(){
+  const tabs=[["devices","设备索引",vDevices],["cheats","速查",vCheats],["gloss","术语",vGloss]];
+  const cur=tabs.find(t=>t[0]===refTab)||tabs[0];
+  return `<div><h1>设备与速查</h1><p class="lead">做音乐时回查用：某个设备在哪些手册里用过，常用数字和规则，术语解释。</p></div>
+   <div class="filters" role="tablist">${tabs.map(([k,n])=>`<button role="tab" data-reftab="${k}" aria-pressed="${k===cur[0]}" aria-selected="${k===cur[0]}">${n}</button>`).join("")}</div>
+   <div style="display:flex;flex-direction:column;gap:12px">${cur[2]()}</div>`;
+}
+function vAdd(){
+  return `<div><h1>添加新风格</h1><p class="lead">这个网站的内容写在页面里。学完一个新风格后，在对话里让我更新这个网站，新手册会被归到对应风格，技巧和设备会自动和已有内容交叉索引。</p></div>
+  <ol class="steps">
+   <li><div><h3>照旧做学习手册</h3><p>发视频链接、字幕或工程文件，我照现在的格式写手册（笔记 + 操作步骤 + 练习）。</p></div></li>
+   <li><div><h3>说一句“加进风格图谱”</h3><p>我会给手册写摘要、关键词、设备链和章节，打上风格和分类，把新技巧加入索引，已有技巧补上出处。</p></div></li>
+   <li><div><h3>风格档案自动成形</h3><p>第一份手册进来时新建风格档案；手册多了以后，我会补上这个风格的特征、BPM 分布和参考听单。</p></div></li>
+   <li><div><h3>对比风格</h3><p>有两个以上风格后，可以加一张对比表：音阶、速度、节奏手法、典型效果链各有什么不同。</p></div></li>
+  </ol>
+  <section class="card"><div class="eyebrow">候选的下一个风格</div><p>根据你现有手册里已经碰到的内容（Dub 回声、Lo-Fi、Acid 与 Reese bass 配方、Basic Channel 的参考），这几个风格最容易接上：</p>
+   <div class="chips">${NEXT_STYLES.map(s=>`<span class="chip plain">${esc(s)}</span>`).join("")}</div></section>`;
+}
+
+/* ---------- stuck ---------- */
+let stuckDone=store.get("atlas-stuck",{}), stuckStatus=store.get("atlas-stuck-status",{});
+const statusOf=s=>stuckStatus[s.id]||s.status;
+function pitchEnvSvg(){
+  const x0=52,x1=360,y0=24,y1=126,T=200,dec=35,top=36;
+  const X=t=>x0+t/T*(x1-x0), Y=st=>y1-st/top*(y1-y0);
+  let d="";for(let t=0;t<=T;t+=2){const st=top*Math.exp(-t/dec);d+=(t?"L":"M")+X(t).toFixed(1)+" "+Y(st).toFixed(1)}
+  const yt=[0,12,24,36].map(v=>`<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="1"/><text x="${x0-8}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)" font-family="JetBrains Mono, monospace">${v?"+"+v:"0"}</text>`).join("");
+  const xt=[0,50,100,150,200].map(v=>`<text x="${X(v)}" y="${y1+18}" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="JetBrains Mono, monospace">${v}</text>`).join("");
+  return `<div class="svgwrap"><svg viewBox="0 0 380 166" role="img" aria-label="音高包络示意：音头比原音高高 36 个半音，大约 100 毫秒内滑回原音高">
+   ${yt}${xt}
+   <text x="${x1}" y="${y1+34}" text-anchor="end" font-size="11" fill="var(--muted)">时间（毫秒）</text>
+   <text x="10" y="14" font-size="11" fill="var(--muted)">半音（相对原音高）</text>
+   <path d="${d}" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+   <circle cx="${X(0)}" cy="${Y(top)}" r="4" fill="var(--accent)"/>
+   <text x="${X(0)+10}" y="${Y(top)+4}" font-size="12" fill="var(--fg)">音头从高处开始</text>
+   <text x="${X(62)}" y="${Y(17)}" font-size="12" fill="var(--fg)">Decay：滑回原音高 = “咚”</text>
+   <text x="${X(150)}" y="${Y(0)-8}" text-anchor="middle" font-size="12" fill="var(--muted)">之后停在原音高</text>
+  </svg></div>`;
+}
+function refSection(s){const r=s.ref;
+  const grid=`<div class="tbl" style="padding:12px"><div class="stepgrid"><span></span>${Array.from({length:16},(_,i)=>`<span class="l" style="text-align:center">${i%4===0?(i/4+1):""}</span>`).join("")}${r.grid.map(([n,on])=>`<span class="l">${esc(n)}</span>${Array.from({length:16},(_,i)=>`<span class="c${on.includes(i+1)?" on":""}${i%4===0?" beat":""}"></span>`).join("")}`).join("")}</div></div>`;
+  return `<section><h3>参照：成曲里的鼓</h3>
+   <p>从你找到的成曲音频里量出来的。鼓是 DnB 标准的 two-step，一小节 16 格：</p>${grid}
+   <div class="tbl"><table><thead><tr><th>项目</th><th>实测（大约）</th><th>意味着</th><th>Operator 起点</th></tr></thead><tbody>${r.meas.map(m=>`<tr><td style="white-space:nowrap">${esc(m[0])}</td><td>${esc(m[1])}</td><td>${esc(m[2])}</td><td>${esc(m[3])}</td></tr>`).join("")}</tbody></table></div>
+   <p class="snip">测量时鼓和其他声音混在一起，数字是大致值，用来定方向，不是精确参数。</p>
+   <h4>三个参照 loop</h4><p style="color:var(--muted)">每个 8 小节，168 BPM。可以在这里试听，下载后直接拖进 Ableton。</p>${audioBox("tom-quibble",["audio/tom-quibble/ref-intro-bars17-24.wav","audio/tom-quibble/ref-outro-bars129-136.wav","audio/tom-quibble/ref-drop1-bars33-40.wav"])}
+   <h4>怎么用</h4><ol class="nlist">${r.use.map(u=>`<li><p style="color:var(--fg)">${esc(u)}</p></li>`).join("")}</ol></section>`;
+}
+function arrSection(s){const a=s.arr,L=a.energy.low,H=a.energy.high,n=L.length;
+  const x0=40,x1=740,y0=34,y1=170,X=b=>x0+(b-1)/(n-1)*(x1-x0),Y=v=>y1-v*(y1-y0);
+  const path=arr=>arr.map((v,i)=>(i?"L":"M")+X(i+1).toFixed(1)+" "+Y(v).toFixed(1)).join("");
+  const sec=a.bounds.map(([b,lab],i)=>{const nx=a.bounds[i+1]?a.bounds[i+1][0]:n+1;const mid=(X(b)+X(Math.min(nx,n)))/2;
+    return `<line x1="${X(b)}" x2="${X(b)}" y1="${y0-12}" y2="${y1}" stroke="var(--line)" stroke-dasharray="2 3"/>${lab?`<text x="${mid}" y="${y0-16}" text-anchor="middle" font-size="11" fill="var(--muted)">${esc(lab)}</text>`:""}`}).join("");
+  const ticks=[1,17,33,49,65,81,97,113,129,145,161].map(b=>`<text x="${X(b)}" y="${y1+16}" text-anchor="middle" font-size="10.5" fill="var(--muted)" font-family="JetBrains Mono, monospace">${b}</text>`).join("");
+  const yt=[0,0.5,1].map(v=>`<line x1="${x0}" x2="${x1}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)" stroke-width="${v?0.6:1}"/><text x="${x0-6}" y="${Y(v)+3}" text-anchor="end" font-size="10" fill="var(--muted)" font-family="JetBrains Mono, monospace">${v}</text>`).join("");
+  const hit=L.map((v,i)=>{const t0=0.01+i*60/168*4,mm=Math.floor(t0/60),ss=String(Math.floor(t0%60)).padStart(2,"0");return `<rect x="${X(i+1)-2.1}" y="${y0}" width="4.2" height="${y1-y0}" fill="transparent"><title>第 ${i+1} 小节 · ${mm}:${ss}\n低频 ${v} · 高频 ${H[i]}</title></rect>`}).join("");
+  return `<section><h3>成曲结构：段落和能量</h3>
+   <p>同一首成曲，按小节量出低频和高频的能量（各自以最响的一小节为 1）。低频进出就是段落切换：Tom 讲的 dynamic arrangement 在这里一眼能看到。</p>
+   <div class="legend"><span><i></i>低频（150 Hz 以下：kick、sub、贝斯）</span><span><i class="d"></i>高频（5 kHz 以上：镲、snare 顶部、噪声）</span></div>
+   <div class="chartwrap"><svg viewBox="0 0 760 200" role="img" aria-label="Quibble Deluxe 每小节低频与高频能量，168 小节">
+    ${yt}${sec}${ticks}
+    <text x="${x1}" y="${y1+30}" text-anchor="end" font-size="10.5" fill="var(--muted)">小节（168 BPM，每小节约 1.43 秒）</text>
+    <path d="${path(L)}" fill="none" stroke="var(--c1)" stroke-width="2" stroke-linejoin="round"/>
+    <path d="${path(H)}" fill="none" stroke="var(--c2)" stroke-width="2" stroke-dasharray="5 3" stroke-linejoin="round"/>
+    ${hit}</svg></div>
+   <div class="tbl"><table><thead><tr><th>小节</th><th>时间</th><th>能量上看到的</th><th>对应 Tom 的段落（推断）</th></tr></thead><tbody>${a.rows.map(r=>`<tr><td class="mono" style="white-space:nowrap">${esc(r[0])}</td><td class="mono" style="white-space:nowrap">${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("")}</tbody></table></div>
+   <p class="snip">能量来自音频测量；段落名称是对照视频里 Tom 设的 locator 推断的。</p></section>`;
+}
+function statusPill(s){const st=statusOf(s);return `<span class="pill s-${st}">${STATUS[st]}</span>`}
+function vStuck(){
+  const allTodo=STUCK.flatMap(s=>s.future.map((f,i)=>({s,f,i})));
+  const nDone=allTodo.filter(t=>stuckDone[t.s.id]?.[t.i]).length;
+  const todoItem=t=>`<li><label><input type="checkbox" data-stuck="${t.s.id}" data-i="${t.i}" ${stuckDone[t.s.id]?.[t.i]?"checked":""}><span>${esc(t.f)}${STUCK.length>1?`<br><span class="src">来自：${esc(t.s.title)}</span>`:""}</span></label></li>`;
+  return `<div><h1>卡点与对策</h1><p class="lead">学习中卡住的地方，记下为什么卡、当下怎么绕过去、以后要补什么课。卡点本身就是下一步该学什么的线索。</p></div>
+  <section class="method">
+   <div><b>1</b><span>用一句话说清卡在哪</span></div>
+   <div><b>2</b><span>判断类型：审美判断、知识缺口、操作不熟，还是没动力</span></div>
+   <div><b>3</b><span>先绕过去，别让它挡住跟做</span></div>
+   <div><b>4</b><span>把要补的课记下来，另外排时间</span></div>
+  </section>
+  <section class="card"><div class="top"><h3>要补的课</h3><span class="chip plain">${nDone}/${allTodo.length} 完成</span></div><ul class="todo">${allTodo.map(todoItem).join("")}</ul></section>
+  ${STUCK.map(s=>`
+  <article class="stuck" id="k-${s.id}">
+   <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">${statusPill(s)}${s.kinds.map(k=>`<span class="chip plain">${esc(k)}</span>`).join("")}<span class="mono" style="color:var(--muted)">${s.date}</span></div>
+    <h2>${esc(s.title)}</h2>
+    <div style="font-size:14px">跟做：<a href="${s.where.url}" target="_blank" rel="noopener">${esc(s.where.name)}</a><br><span style="color:var(--muted)">${esc(s.where.note)}</span></div>
+    <div class="statusbar" role="group" aria-label="状态">${Object.entries(STATUS).map(([k,n])=>`<button data-status="${k}" data-sid="${s.id}" aria-pressed="${statusOf(s)===k}" class="${statusOf(s)===k?"s-"+k:""}">${n}</button>`).join("")}</div>
+   </div>
+   <section><h3>卡在哪</h3><p class="quote">${esc(s.stuck)}</p>
+    <p><b>当时的做法：</b>${esc(s.tried)}${esc(s.triedCost)}</p></section>
+   <section><h3>为什么会卡</h3><div class="pts">${s.diag.map(([h,b])=>`<div><h4>${esc(h)}</h4><p style="color:var(--muted);font-size:14px">${esc(b)}</p></div>`).join("")}</div></section>
+   <section><h3>当下怎么办</h3><ol class="nlist">${s.now.map(([h,b])=>`<li><div><h4>${esc(h)}</h4><p>${esc(b)}</p></div></li>`).join("")}</ol></section>
+   <section><h3>搭不搭四问</h3><p style="color:var(--muted)">都在循环播放时听，不要 solo。</p>
+    <div class="tbl"><table><tbody>${s.checks.map(([q,a])=>`<tr><td style="white-space:nowrap;font-weight:500">${esc(q)}</td><td>${esc(a)}</td></tr>`).join("")}</tbody></table></div></section>
+   ${s.ref?refSection(s):""}
+   ${s.arr?arrSection(s):""}
+   <section><h3>顺便答疑</h3>${s.explain.map(e=>`<div style="display:flex;flex-direction:column;gap:8px;margin-bottom:8px"><h4>${esc(e.h)}</h4>${e.ps.slice(0,1).map(p=>`<p>${esc(p)}</p>`).join("")}${e.svg?pitchEnvSvg():""}${e.ps.slice(1).map(p=>`<p>${esc(p)}</p>`).join("")}</div>`).join("")}</section>
+   <section><h3>跟做前一次备好</h3><p style="color:var(--muted)">Tom 后面每个现成素材都是提前选好的。照这张单子提前备好，跟做时就不会再停下来。</p>
+    <div class="tbl"><table><thead><tr><th>用在哪</th><th>需要什么</th></tr></thead><tbody>${s.prep.map(([a,b])=>`<tr><td style="white-space:nowrap">${esc(a)}</td><td>${esc(b)}</td></tr>`).join("")}</tbody></table></div></section>
+   <section><h3>以后：练“鼓的耳朵”</h3><p>值得专门留时间，但要小而稳定：每天 15 分钟，和跟做完全分开。四周后你会有自己的收藏和 3 套鼓组，以后跟做时直接拖进来用。</p>
+    <div class="tbl"><table><thead><tr><th>时间</th><th>对象</th><th>每天做什么</th><th>留下</th></tr></thead><tbody>${s.plan.map(r=>`<tr><td class="mono" style="white-space:nowrap">${esc(r[0])}</td><td style="white-space:nowrap">${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("")}</tbody></table></div>
+    <h4 style="margin-top:6px">听鼓时的词汇</h4>
+    <div class="tbl"><table><thead><tr><th>鼓</th><th>听哪些部分</th><th>大致频段</th><th>改它用什么</th></tr></thead><tbody>${s.vocab.map(r=>`<tr><td style="white-space:nowrap">${esc(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`).join("")}</tbody></table></div>
+    <p class="snip">频段是大致范围，每个采样都不一样，用 EQ Eight 的频谱自己看一眼最准。</p></section>
+   <section><h3>相关内容</h3><div style="font-size:14px">手册：${s.manuals.map(manualLink).join("、")}</div>
+    <div class="chips">${s.tech.map(t=>`<button class="chip" data-tech="${t}">${esc(techById[t].name)}</button>`).join("")}</div></section>
+  </article>`).join("")}
+  <section class="card"><h3>新增卡点</h3><p>下次卡住时，在对话里跟我说卡在哪、试过什么，再加一句“加进卡点”。我会按同样的结构写好放进来，要补的课会自动汇总到上面的清单。</p></section>`;
+}
+
+/* ---------- search ---------- */
+function vSearch(q){
+  const ql=q.toLowerCase(), hit=s=>String(s).toLowerCase().includes(ql);
+  const hl=s=>{const t=esc(s);const i=t.toLowerCase().indexOf(esc(q).toLowerCase());return i<0?t:t.slice(0,i)+"<mark>"+t.slice(i,i+esc(q).length)+"</mark>"+t.slice(i+esc(q).length)};
+  const ms=MANUALS.filter(m=>[m.title,m.sub,m.sum,m.cat,...m.keys,...m.devices,...m.secs,...m.meta,PLAIN[m.id]||""].some(hit));
+  const snipOf=m=>{const p=PLAIN[m.id]||"";if([m.title,m.sub,m.sum].some(hit))return "";const i=p.toLowerCase().indexOf(ql);if(i<0)return "";return hl(p.slice(Math.max(0,i-36),i+q.length+48))};
+  const ts=TECH.filter(t=>[t.name,t.line,t.how,t.kind].some(hit));
+  const gs=GLOSS.filter(g=>g.some(hit)), cs=CHEATS.filter(c=>c.some(hit));
+  const ss=SONGS.filter(s=>[s.t,s.a,s.al,s.feel,s.hear,s.harm,s.role,s.facts||"",...s.kw].some(hit));
+  const sk=STUCK.filter(s=>JSON.stringify(s).toLowerCase().includes(ql));
+  const total=ms.length+ts.length+gs.length+cs.length+ss.length+sk.length;
+  return `<div><h1>搜索 “${esc(q)}”</h1><p class="lead">${total} 条结果</p></div>
+  ${total?"":`<div class="empty">没有找到。试试设备名（Operator、Delay）、技巧（随机、和弦）或参数（Jump、Decay）。</div>`}
+  ${sk.length?`<div class="res"><h3>卡点 · ${sk.length}</h3><div class="grid">${sk.map(s=>`<article class="card"><div class="top"><h3>${hl(s.title)}</h3>${statusPill(s)}</div><p>${esc(s.stuck.slice(0,70))}…</p><button class="chip" data-view="stuck">查看卡点与对策</button></article>`).join("")}</div></div>`:""}
+  ${ms.length?`<div class="res"><h3>手册 · ${ms.length}</h3><div class="grid">${ms.map(m=>manualCard(m,snipOf(m))).join("")}</div></div>`:""}
+  ${ss.length?`<div class="res"><h3>曲目 · ${ss.length}</h3><ol class="srows">${ss.map(x=>songRow(x,null,true)).join("")}</ol></div>`:""}
+  ${ts.length?`<div class="res"><h3>技巧 · ${ts.length}</h3><div class="grid">${ts.map(t=>`<article class="card"><h3>${hl(t.name)}</h3><p>${hl(t.line)}</p><p style="font-size:13px;color:var(--muted)">${hl(t.how)}</p><button class="chip" data-tech="${t.id}">在技巧索引中查看</button></article>`).join("")}</div></div>`:""}
+  ${cs.length||gs.length?`<div class="res"><h3>速查与术语 · ${cs.length+gs.length}</h3><div class="tbl"><table><tbody>${cs.map(c=>`<tr><td>${hl(c[0])}</td><td class="mono">${hl(c[1])}</td><td>${hl(c[2])}</td></tr>`).join("")}${gs.map(g=>`<tr><td>${hl(g[0])}</td><td colspan="2">${hl(g[1])}</td></tr>`).join("")}</tbody></table></div></div>`:""}`;
+}
+
+/* ---------- router ---------- */
+let focusTech=null;
+function render(){
+  if(!ready)return;
+  const q=document.getElementById("q").value.trim();
+  const h=(location.hash||"#home").slice(1);
+  if(!q&&h.startsWith("read-")){
+    document.querySelectorAll("#viewNav button,#styleNav button").forEach(b=>b.setAttribute("aria-current","false"));
+    clearInterval(phTimer);
+    const rid=h.slice(5);
+    view.innerHTML=`<div class="wrap" style="max-width:none">${vRead(rid)}</div>`;window.scrollTo(0,0);
+    const saved=store.get("atlas-cb-"+rid,{});
+    view.querySelectorAll(".prose input[type=checkbox]").forEach((c,i)=>{c.dataset.i=i;c.dataset.m=rid;if(i in saved)c.checked=saved[i]});
+    return;
+  }
+  if(!q&&(h.startsWith("songs/a/")||h.startsWith("song/"))){
+    document.querySelectorAll("#viewNav button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.view==="songs")));
+    document.querySelectorAll("#styleNav button").forEach(b=>b.setAttribute("aria-current","false"));
+    clearInterval(phTimer);
+    view.innerHTML=`<div class="wrap" style="max-width:none">${h.startsWith("song/")?vSong(h.slice(5)):vArtist(decodeURIComponent(h.slice(8)))}</div>`;window.scrollTo(0,0);return;
+  }
+  if(ALIAS[h]){const [to,tab]=ALIAS[h];if(tab)refTab=tab;history.replaceState(null,"","#"+to);return render()}
+  const v=VIEWS.some(x=>x[0]===h)?h:"home";
+  document.querySelectorAll("#viewNav button").forEach(b=>b.setAttribute("aria-current",String(!q&&b.dataset.view===v)));
+  document.querySelectorAll("#styleNav button").forEach(b=>b.setAttribute("aria-current",String(!q&&v==="manuals"&&b.dataset.style===curStyle)));
+  if(q){view.innerHTML=`<div class="wrap" style="max-width:none">${vSearch(q)}</div>`;return}
+  const fn={songs:vSongs,home:vHome,manuals:vManuals,techniques:()=>vTech(focusTech),path:vPath,stuck:vStuck,ref:vRef,add:vAdd}[v];
+  view.innerHTML=`<div class="wrap" style="max-width:none">${fn()}</div>`;
+  if(v==="home")startPlayhead(); else clearInterval(phTimer);
+  if(v==="techniques"&&focusTech){const el=document.getElementById("t-"+focusTech);if(el)el.scrollIntoView({block:"center"});focusTech=null}
+  else window.scrollTo(0,0);
+}
+
+let lastList="#manuals";
+document.addEventListener("change",e=>{const c=e.target;
+  if(c.dataset&&c.dataset.stuck){const id=c.dataset.stuck;(stuckDone[id]=stuckDone[id]||{})[c.dataset.i]=c.checked;store.set("atlas-stuck",stuckDone);const y=scrollY;render();scrollTo(0,y);return}if(c.matches&&c.matches(".prose input[type=checkbox]")){const k="atlas-cb-"+c.dataset.m;const s=store.get(k,{});s[c.dataset.i]=c.checked;store.set(k,s)}});
+document.addEventListener("click",e=>{
+  const a=e.target.closest("a[data-jump]");
+  if(a){e.preventDefault();const t=document.getElementById(a.dataset.jump);if(t)t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"});return}
+  const ra=e.target.closest('a[href^="#read-"]');
+  if(ra){const q=document.getElementById("q");if(q.value){lastList="search:"+q.value;q.value=""}else lastList=location.hash||"#home"}
+  const b=e.target.closest("button");if(!b)return;
+  if(b.dataset.heard){const id=b.dataset.heard;heard[id]=!heard[id];if(!heard[id])delete heard[id];try{localStorage.setItem("atlas-heard",JSON.stringify(heard))}catch(e){}
+    document.querySelectorAll(`[data-heard="${id}"]`).forEach(x=>{x.setAttribute("aria-pressed",String(!!heard[id]));x.textContent=heard[id]?"✓ 已听":"标记已听"});if(/^#(songs|song\/)/.test(location.hash)){const y=scrollY;render();scrollTo(0,y)}return}
+  if(b.dataset.reftab){refTab=b.dataset.reftab;render();return}
+  if(b.dataset.role!==undefined){songRole=b.dataset.role;render();return}
+  if(b.dataset.kw!==undefined){songKw=b.dataset.kw&&songKw!==b.dataset.kw?b.dataset.kw:null;document.getElementById("q").value="";if(location.hash!=="#songs")location.hash="songs";else render();return}
+  if(b.dataset.dl){doDownload(b);return}
+  if(b.dataset.status){stuckStatus[b.dataset.sid]=b.dataset.status;store.set("atlas-stuck-status",stuckStatus);const y=scrollY;render();scrollTo(0,y);return}
+  if(b.dataset.back){if(lastList.startsWith("search:")){document.getElementById("q").value=lastList.slice(7);history.replaceState(null,"","#manuals");render()}else location.hash=lastList.slice(1)||"home";return}
+  if(b.dataset.view){document.getElementById("q").value="";location.hash=b.dataset.view;if(location.hash==="#"+b.dataset.view)render()}
+  else if(b.dataset.style){curStyle=b.dataset.style;curCat="全部";document.getElementById("q").value="";if(location.hash!=="#manuals")location.hash="manuals";else render()}
+  else if(b.dataset.cat){curCat=b.dataset.cat;render()}
+  else if(b.dataset.tech){focusTech=b.dataset.tech;document.getElementById("q").value="";if(location.hash!=="#techniques")location.hash="techniques";else render()}
+  else if(b.dataset.done){const id=b.dataset.done;done[id]=!done[id];if(!done[id])delete done[id];store.set("atlas-done",done);
+    document.querySelectorAll(`[data-done="${id}"]`).forEach(x=>{x.setAttribute("aria-pressed",String(!!done[id]));x.textContent=done[id]?"✓ 已练":"标记已练"});
+    if(location.hash==="#path"||location.hash===""||location.hash==="#home")render()}
+});
+let t;document.getElementById("q").addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,120)});
+document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement.tagName!=="INPUT"){e.preventDefault();document.getElementById("q").focus()}if(e.key==="Escape"){const q=document.getElementById("q");q.value="";q.blur();render()}});
+addEventListener("hashchange",render);
+/* ---------- boot: load data files ---------- */
+function loadScript(src){return new Promise((ok,no)=>{const el=document.createElement("script");el.src=src;el.async=true;el.onload=()=>ok();el.onerror=()=>no(new Error(src));document.head.appendChild(el)})}
+async function boot(){
+  view.innerHTML='<div class="empty">正在载入…</div>';
+  try{
+    await Promise.all(["data/catalog.js","data/songs.js","data/stuck.js"].map(loadScript));
+    const cat=window.ATLAS.catalog,songs=window.ATLAS.songs,stuck=window.ATLAS.stuck;
+    ({styles:STYLES,nextStyles:NEXT_STYLES,manuals:MANUALS,techniques:TECH,path:PATH,listen:LISTEN,cheats:CHEATS,glossary:GLOSS}=cat);
+    SONGS=songs.songs;AUDIO=songs.audio||{};STUCK=stuck.entries||[];
+    techById=Object.fromEntries(TECH.map(t=>[t.id,t]));
+    TECH.forEach(t=>t.manuals=MANUALS.filter(m=>m.tech.includes(t.id)).map(m=>m.id));
+    mById=Object.fromEntries(MANUALS.map(m=>[m.id,m]));
+    songById=Object.fromEntries(SONGS.map(s=>[s.id,s]));
+    await Promise.all(MANUALS.map(m=>loadScript(`data/manuals/${m.id}.js`).catch(()=>{})));
+    const mds=MANUALS.map(m=>(window.ATLAS_MD||{})[m.id]||"");
+    MANUALS.forEach((m,i)=>{if(mds[i]){BODY[m.id]=cleanMd(mds[i]);PLAIN[m.id]=BODY[m.id].replace(/[#*|`>\-\[\]]/g," ").replace(/\s+/g," ")}});
+  }catch(e){view.innerHTML=`<div class="empty">数据没有载入成功（${esc(e.message)}）。刷新页面再试。</div>`;return}
+  document.getElementById("viewNav").innerHTML=VIEWS.map(([k,n])=>`<li><button data-view="${k}">${n}</button></li>`).join("");
+  document.getElementById("styleNav").innerHTML=[["all","全部",MANUALS.length],...STYLES.map(s=>[s.id,s.name,MANUALS.filter(m=>m.style===s.id).length])].map(([k,n,c])=>`<li><button data-style="${k}"><span>${esc(n)}</span><span class="n">${c}</span></button></li>`).join("");
+  document.getElementById("soonNav").textContent="待学："+NEXT_STYLES.slice(0,3).join(" · ")+"…";
+  ready=true;render();
+}
+boot();
+</script>
+
+<script>if("serviceWorker" in navigator&&location.protocol==="https:"&&!window.claude){navigator.serviceWorker.register("sw.js").catch(()=>{})}</script>
+</body></html>
