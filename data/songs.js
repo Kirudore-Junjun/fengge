@@ -4865,6 +4865,452 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "bass-articulation-tracks"
    ],
    "facts": "2015 \u5e74 11 \u6708\u53d1\u884c\u7684\u5355\u66f2\uff0c\u5076\u50cf\u5267\u300a\u5fc5\u5a36\u5973\u4eba\u300b\u7247\u5c3e\u66f2\u3002MIDI \u5b9e\u6d4b D \u5927\u8c03\u300159 BPM\uff08\u7b2c 13 \u5c0f\u8282\u7ea6 52.7\uff09\u300161 \u5c0f\u8282\uff1b\u8bb2\u4e49\u8bf4\u6700\u540e\u8f6c\u5230 F\uff0cMIDI \u6700\u540e\u4e00\u6bb5\u5728 B \u5927\u8c03\uff0c\u672a\u6838\u5bf9\u539f\u66f2\u3002"
+  },
+  {
+   "id": "blonde-nikes",
+   "t": "Nikes",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u7a7a\u3001\u98d8\u3001\u6709\u70b9\u55e8\uff0c\u53c8\u6709\u70b9\u5fc3\u4e8b\u3002",
+   "hear": "\u5347\u8c03\u4eba\u58f0\u626e\u5c11\u5e74\uff1b\u5f88\u7a00\u7684\u6570\u5b57\u9f13\u6574\u5957\u6302 1/8 delay\uff1bOrgan \u56db\u548c\u5f26\u5faa\u73af\u91cc\u7b2c\u4e09\u4e2a\u662f Cm/D\u266d\uff1bB \u6bb5\u52a0\u5409\u4ed6\u548c\u53cd\u5411\u5f26\u4e50\u3001\u7ad6\u7434\u3001\u94c3\u94db\u7684\u80cc\u666f\u3002",
+   "harm": "E\u266d \u5927\u8c03\uff0c\u56db\u548c\u5f26\u5faa\u73af\uff0c\u7b2c\u4e09\u4e2a\u548c\u5f26 D\u266dmaj9(\u266f11) = Cm/D\u266d",
+   "kw": [
+    "\u5347\u8c03\u4eba\u58f0\u505a\u89d2\u8272",
+    "\u6574\u5957\u9f13\u6302\u516b\u5206\u97f3\u7b26 delay",
+    "\u53ea\u52a8\u4e00\u4e2a\u58f0\u90e8\u7684\u8c03\u5916\u548c\u5f26",
+    "\u58f0\u5899",
+    "A + B \u4e24\u6bb5\u5f0f\u7ed3\u6784"
+   ],
+   "tech": [
+    "pitched-vocal-character",
+    "drum-kit-delay",
+    "one-voice-chromatic",
+    "wall-of-sound",
+    "part-ab-structure"
+   ],
+   "facts": "\u5236\u4f5c\uff1aFrank Ocean\u3001Malay\u3001Om'Mas Keith\uff08\u89c6\u9891\u8bf4\u662f James Blake\uff0c\u4e0e\u7f72\u540d\u4e0d\u7b26\uff09\u3002\u4e13\u8f91\u9996\u5355\u3002"
+  },
+  {
+   "id": "blonde-ivy",
+   "t": "Ivy",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u56de\u5934\u770b\u65e7\u7231\uff0c\u6e29\u67d4\u91cc\u5e26\u540e\u6094\u3002",
+   "hear": "\u4e09\u628a\u5409\u4ed6\uff08\u4f4e\u97f3\u516b\u5206\u3001\u9ad8\u97f3\u516b\u5206\u3001\u957f\u97f3\uff09+ \u65cb\u8f6c\u97f3\u7bb1\u6548\u679c\uff1b\u4e3b\u6b4c\u4eba\u58f0\u53e5\u6cd5\u5f88\u300aChannel Orange\u300b\uff1b\u7ed3\u6784\u662f\u6b63\u7edf\u7684\u526f\u6b4c\u2014\u4e3b\u6b4c\u3002",
+   "harm": "\u5409\u4ed6\u548c\u5f26\u4e3a\u4e3b\uff0c\u89c6\u9891\u672a\u7ed9\u548c\u5f26",
+   "kw": [
+    "\u4e09\u628a\u5409\u4ed6\u5206\u5de5",
+    "\u65cb\u8f6c\u97f3\u7bb1\u6548\u679c"
+   ],
+   "tech": [
+    "three-guitar-roles",
+    "rotary-effect"
+   ],
+   "facts": "Rostam Batmanglij \u7f16\u914d\uff0c\u53c2\u7167 The Strokes\u300aUnder Control\u300b\uff1b2013 \u5e74\u5df2\u6709\u73b0\u573a\u7248\u3002"
+  },
+  {
+   "id": "blonde-pinkwhite",
+   "t": "Pink + White",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u677e\u5f1b\u3001\u6e29\u6696\uff0c\u5e95\u4e0b\u6709\u4e00\u70b9\u5bf9\u6b7b\u4ea1\u7684\u610f\u8bc6\u3002",
+   "hear": "6/8\u3001\u8f7b\u5fae swing \u7684 pocket\uff1b\u8d1d\u65af\u5728\u9ad8\u97f3\u533a\u5f39\u7436\u97f3\uff1b\u6ce1\u5728\u6df7\u54cd\u91cc\u7684\u94a2\u7434\u516b\u5ea6\u94a9\u5b50\u548c\u9f13\u6210 3 \u5bf9 2\uff1bBeyonc\u00e9 \u7684\u5408\u5531\u5c42\u3002",
+   "harm": "Cmaj7 \u2192 Bm7 \u2192 Amaj7\uff0c\u4ece G \u8f6c\u5230 A\uff08Bm7 \u5f53\u67a2\u7ebd\uff09",
+   "kw": [
+    "swing \u8ba9\u4e00\u5207\u53d8 chill",
+    "\u8d1d\u65af\u5728\u9ad8\u97f3\u533a\u5f39\u7436\u97f3",
+    "3 \u5bf9 2 \u7684\u590d\u8282\u594f\u94a9\u5b50",
+    "\u5e73\u79fb\u5927\u4e03\u548c\u5f26",
+    "\u5faa\u73af\u91cc\u7684\u67a2\u7ebd\u8f6c\u8c03",
+    "\u58f0\u5899"
+   ],
+   "tech": [
+    "swing-casual",
+    "high-register-bass",
+    "hook-3-over-2",
+    "maj7-planing",
+    "pivot-in-loop",
+    "wall-of-sound"
+   ],
+   "facts": "Pharrell \u5236\u4f5c\uff0c\u8bcd\u66f2\u53e6\u6709 Tyler, the Creator\u3001Om'Mas Keith\uff1bBeyonc\u00e9 \u7f72\u540d\u9644\u52a0\u4eba\u58f0\u3002\u4e13\u8f91\u64ad\u653e\u91cf\u6700\u9ad8\u7684\u4e00\u9996\u3002"
+  },
+  {
+   "id": "blonde-beyourself",
+   "t": "Be Yourself",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u50cf\u88ab\u5bb6\u91cc\u4eba\u5ff5\u53e8\uff0c\u53c8\u6709\u70b9\u597d\u7b11\u3002",
+   "hear": "\u6bcd\u4eb2\u7684\u8bed\u97f3\u7559\u8a00\uff0c\u5e95\u4e0b\u4e00\u4e2a\u5e26 chorus \u7684\u7535\u94a2\u5faa\u73af\uff0c\u50cf Brian Eno \u7684\u6c1b\u56f4\u97f3\u4e50\u3002",
+   "harm": "\u7535\u94a2\u5faa\u73af\uff08\u5168\u4e13\u8f91\u7684\u4e3b\u5bfc\u52a8\u673a\uff09",
+   "kw": [
+    "Skit",
+    "\u8de8\u66f2\u590d\u73b0\u7684\u6c1b\u56f4\u5faa\u73af"
+   ],
+   "tech": [
+    "skit-over-loop",
+    "ambient-leitmotif"
+   ],
+   "facts": "\u563b\u54c8\u4e13\u8f91\u7684 skit \u4f20\u7edf\u3002"
+  },
+  {
+   "id": "blonde-solo",
+   "t": "Solo",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u5b64\u72ec\u53c8\u4e0a\u5934\uff0c\u50cf\u5728\u5fcf\u6094\u3002",
+   "hear": "\u798f\u97f3 Organ\u3001\u6ca1\u6709\u9f13\uff1b\u8bf4\u5531\u5f0f\u6f14\u5531\uff1b\u548c\u5f26\u51e0\u4e4e\u5168\u662f\u659c\u6760\u548c\u5f26\uff0c\u6bcf\u5c0f\u8282\u6362\u3002",
+   "harm": "\u798f\u97f3\u5f0f\u4e03\u3001\u4e5d\u3001\u5341\u4e00\u548c\u5f26 + \u659c\u6760\u548c\u5f26",
+   "kw": [
+    "Drumless",
+    "\u798f\u97f3\u5f0f\u659c\u6760\u548c\u5f26"
+   ],
+   "tech": [
+    "drumless-flow",
+    "gospel-slash-chords"
+   ],
+   "facts": "James Blake \u53c2\u4e0e\u3002\u7d27\u63a5\u300aBe Yourself\u300b\u7684\u529d\u544a\uff0c\u5185\u5bb9\u5b8c\u5168\u53cd\u7740\u6765\u3002"
+  },
+  {
+   "id": "blonde-skylineto",
+   "t": "Skyline To",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u590f\u591c\u7684\u788e\u7247\uff0c\u61d2\u6d0b\u6d0b\u7684\u3002",
+   "hear": "\u5409\u4ed6\u5728 m7 \u548c maj7 \u4e4b\u95f4\u6765\u56de\uff1b\u88ab\u6ee4\u6389\u7684\u8f7b\u6253\u51fb\uff1bA \u6bb5\u5f88\u7a7a\uff0cB \u6bb5\u5408\u5531\u3001delay\u3001reverb\u3001\u53cd\u5411\u6548\u679c\u5806\u6210\u58f0\u5899\u3002",
+   "harm": "m7 \u4e0e maj7 \u4ea4\u66ff",
+   "kw": [
+    "\u5e73\u79fb\u5927\u4e03\u548c\u5f26",
+    "Drumless",
+    "A + B \u4e24\u6bb5\u5f0f\u7ed3\u6784",
+    "\u58f0\u5899"
+   ],
+   "tech": [
+    "maj7-planing",
+    "drumless-flow",
+    "part-ab-structure",
+    "wall-of-sound"
+   ],
+   "facts": "\u8bcd\u66f2\u7f72\u540d\u6709 Kendrick Lamar\u3001Tyler, the Creator\u3002\u5b57\u5e55\u91cc\u88ab\u542c\u6210 Skyline 2 / Valon 2\u3002"
+  },
+  {
+   "id": "blonde-selfcontrol",
+   "t": "Self Control",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u514b\u5236\u7740\u7684\u4e0d\u820d\uff0c\u5230\u7ed3\u5c3e\u6574\u4e2a\u6ea2\u51fa\u6765\u3002",
+   "hear": "\u5f00\u5934\u5f15\u7528\u300aPoolside Convo\u300b\u7684\u5347\u8c03\u4eba\u58f0\uff1bAlex G \u7684 neo soul \u5409\u4ed6\uff1bB \u6bb5\u6574\u8f68\u9001\u6548\u679c\uff0c\u88ab\u5f26\u4e50\u6df9\u6ca1\uff1b\u7ed3\u5c3e\u53cd\u5411\u56de\u58f0\u548c\u8fc7\u8f7d\u4eba\u58f0 solo\u3002",
+   "harm": "\u5409\u4ed6\u548c\u5f26\uff0c\u89c6\u9891\u672a\u7ed9",
+   "kw": [
+    "\u5347\u8c03\u4eba\u58f0\u505a\u89d2\u8272",
+    "\u4e00\u628a\u5409\u4ed6\u6f14\u6574\u4e2a\u8282\u594f\u7ec4",
+    "\u6574\u8f68\u9001\u6548\u679c\u505a\u300c\u9ad8\u7ea7\u56de\u58f0\u300d",
+    "A + B \u4e24\u6bb5\u5f0f\u7ed3\u6784"
+   ],
+   "tech": [
+    "pitched-vocal-character",
+    "one-guitar-rhythm-section",
+    "whole-mix-fx-send",
+    "part-ab-structure"
+   ],
+   "facts": "\u5409\u4ed6\uff1aAlex G\u3002"
+  },
+  {
+   "id": "blonde-goodguy",
+   "t": "Good Guy",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u5f88\u8fd1\u3001\u5f88\u79c1\u4eba\uff0c\u50cf\u5077\u542c\u3002",
+   "hear": "\u53ea\u6709\u4eba\u58f0\u548c\u6ca1\u6b4c\u8bcd\u7684\u7535\u94a2\uff1b\u4eba\u58f0\u50cf\u4ece\u7535\u8bdd\u6216\u8bed\u97f3\u5907\u5fd8\u5f55\u91cc\u51fa\u6765\uff1b\u6ca1\u6709\u7ed3\u6784\uff0c\u50cf\u610f\u8bc6\u6d41\u3002",
+   "harm": "\u7535\u94a2\uff0c\u89c6\u9891\u672a\u7ed9",
+   "kw": [
+    "\u7535\u8bdd EQ \u4eba\u58f0",
+    "\u8bb0\u5fc6\u62fc\u8d34\uff08brick collage\uff09"
+   ],
+   "tech": [
+    "phone-eq-vocal",
+    "brick-collage"
+   ],
+   "facts": "\u7ea6 1 \u5206\u949f\u3002"
+  },
+  {
+   "id": "blonde-nights",
+   "t": "Nights",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u524d\u534a\u6bb5\u60f3\u8df3\u821e\uff0c\u540e\u534a\u6bb5\u6c89\u4e0b\u53bb\u3002",
+   "hear": "A \u6bb5\uff1a\u4e24\u6761\u5207\u7247\u91cd\u62fc\u7684\u5409\u4ed6\uff08\u4e00\u6761\u5347\u8c03\u4e00\u6761\u5931\u771f\uff09\uff0c\u524d\u4e24\u62cd\u53cd\u5411\u8e29\u9572\u505a swing\uff0c\u5361\u987f\u94fa\u57ab\uff1bB \u6bb5\u5728\u5168\u4e13\u8f91\u4e2d\u70b9\u6362\u6210\u9634\u6697\u7684 trap\u3002",
+   "harm": "A \u6bb5\u4e0e B \u6bb5\u5b8c\u5168\u4e0d\u540c",
+   "kw": [
+    "\u4e24\u6761\u91c7\u6837\u5207\u7247\u91cd\u62fc",
+    "\u53cd\u5411\u8e29\u9572\u505a\u51fa swing",
+    "Beat switch",
+    "A + B \u4e24\u6bb5\u5f0f\u7ed3\u6784"
+   ],
+   "tech": [
+    "chop-two-takes",
+    "reverse-hat-swing",
+    "beat-switch",
+    "part-ab-structure"
+   ],
+   "facts": "\u5168\u4e13\u8f91\u7684\u4e2d\u5fc3\uff0c\u6362 beat \u5904\u88ab\u89c6\u4e3a\u4e13\u8f91\u7684\u5206\u754c\u3002"
+  },
+  {
+   "id": "blonde-soloreprise",
+   "t": "Solo (Reprise)",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u6025\u3001\u5bc6\u3001\u5e26\u523a\u3002",
+   "hear": "Andr\u00e9 3000 \u72ec\u81ea\u5b8c\u6210\uff1b\u5feb\u901f\u590d\u6742\u62bc\u97f5\u3001\u4e09\u8fde\u97f3 flow\uff1bJames Blake \u7684\u620f\u5267\u5316\u94a2\u7434\uff1b\u9ad8\u6f6e\u540e 808 + \u65e0\u8c03\u6027\u5408\u6210\u5668\u3002",
+   "harm": "\u94a2\u7434\u548c\u5f26\uff0c\u89c6\u9891\u672a\u7ed9",
+   "kw": [
+    "Drumless"
+   ],
+   "tech": [
+    "drumless-flow"
+   ],
+   "facts": "Andr\u00e9 3000 \u4e0d\u5728\u66f2\u76ee\u8868\u4e0a\u7f72\u540d\u3002"
+  },
+  {
+   "id": "blonde-prettysweet",
+   "t": "Pretty Sweet",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u6df7\u4e71\u5230\u7a81\u7136\u6e05\u9192\u3002",
+   "hear": "\u5f00\u5934\u4e00\u5835\u4e50\u56e2\u4e71\u594f\u7684\u4e0d\u534f\u548c\u5899\uff1b\u4e4b\u540e jangle pop \u5409\u4ed6\u5e73\u79fb\u4e03\u548c\u5f26\uff1b\u58f0\u5899\uff1b\u9ad8\u6f6e\u7684 breakbeat \u9f13\u3002",
+   "harm": "\u5e73\u79fb\u4e03\u548c\u5f26\u3001\u8c03\u5f0f\u4e92\u6362",
+   "kw": [
+    "\u7ba1\u5f26\u4e0d\u534f\u548c\u6e10\u5f3a\u5899",
+    "\u5e73\u79fb\u5927\u4e03\u548c\u5f26",
+    "\u8c03\u5916\u5927\u4e09\u548c\u5f26\u5e76\u7f6e",
+    "\u58f0\u5899"
+   ],
+   "tech": [
+    "dissonance-wall",
+    "maj7-planing",
+    "mode-mixture",
+    "wall-of-sound"
+   ],
+   "facts": "\u53c2\u7167 The Beatles\u300aA Day in the Life\u300b\uff1b\u9f13\u662f Amen break \u4e3a\u89c6\u9891\u8bf4\u6cd5\u3002"
+  },
+  {
+   "id": "blonde-facebookstory",
+   "t": "Facebook Story",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u8352\u8bde\uff0c\u53c8\u5f88 2010 \u5e74\u4ee3\u3002",
+   "hear": "SebastiAn \u8bb2\u56e0\u4e3a\u4e0d\u80af\u5728 Facebook \u52a0\u597d\u53cb\u800c\u5206\u624b\uff1b\u5e95\u4e0b\u53c8\u662f\u90a3\u4e2a\u6c1b\u56f4\u7535\u94a2\u5faa\u73af\u3002",
+   "harm": "\u7535\u94a2\u5faa\u73af\uff08\u4e3b\u5bfc\u52a8\u673a\uff09",
+   "kw": [
+    "Skit",
+    "\u8de8\u66f2\u590d\u73b0\u7684\u6c1b\u56f4\u5faa\u73af",
+    "\u8bb0\u5fc6\u62fc\u8d34\uff08brick collage\uff09"
+   ],
+   "tech": [
+    "skit-over-loop",
+    "ambient-leitmotif",
+    "brick-collage"
+   ],
+   "facts": "SebastiAn \u662f\u6cd5\u56fd\u5236\u4f5c\u4eba\u3002"
+  },
+  {
+   "id": "blonde-closetoyou",
+   "t": "Close to You",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u8001\u6b4c\u5728\u65b0\u623f\u95f4\u91cc\u653e\u3002",
+   "hear": "\u63d2\u503c Stevie Wonder \u7528 talkbox \u7ffb\u5531\u7684\u65cb\u5f8b\uff0c\u914d\u73b0\u4ee3 lo-fi \u9f13\u3002",
+   "harm": "\u6cbf\u7528\u539f\u66f2\u65cb\u5f8b",
+   "kw": [
+    "\u63d2\u503c"
+   ],
+   "tech": [
+    "interpolation"
+   ],
+   "facts": "\u539f\u66f2\u4e3a Carpenters \u5531\u7ea2\u7684\u300a(They Long to Be) Close to You\u300b\u3002"
+  },
+  {
+   "id": "blonde-whiteferrari",
+   "t": "White Ferrari",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u5728\u8f66\u91cc\uff0c\u5f88\u5b89\u9759\uff0c\u5f88\u8fd1\u53c8\u5f88\u8fdc\u3002",
+   "hear": "\u51e0\u4e4e\u7a7a\u7684\u5408\u6210\u5668\u548c\u5f26\uff1b\u9f13\u88ab\u63a8\u5230\u5f88\u8fdc\u3001\u53ea\u9020\u6c1b\u56f4\uff1b\u914d\u5668\u4e00\u8def\u6162\u6162\u53d8\uff1b\u7ed3\u5c3e\u5f15\u7528\u300aHere, There and Everywhere\u300b\uff1b\u5e95\u4e0b\u85cf\u5927\u91cf\u5c0f\u7ec6\u8282\u3002",
+   "harm": "\u548c\u58f0\u5f88\u7b80\u5355",
+   "kw": [
+    "\u6f5c\u5165\u5f0f\u53e0\u5c42",
+    "\u63d2\u503c",
+    "\u8bb0\u5fc6\u62fc\u8d34\uff08brick collage\uff09"
+   ],
+   "tech": [
+    "stealth-layers",
+    "interpolation",
+    "brick-collage"
+   ],
+   "facts": "\u8bcd\u66f2\u7f72\u540d\u6709 James Blake\u3001Kanye West\uff1b\u89c6\u9891\u8bf4\u505a\u4e86\u7ea6 50 \u4e2a\u7248\u672c\u3002"
+  },
+  {
+   "id": "blonde-seigfried",
+   "t": "Seigfried",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u6f02\u7740\uff0c\u4e0d\u89e3\u51b3\uff0c\u627e\u4e0d\u5230\u4f4d\u7f6e\u3002",
+   "hear": "\u56db\u4e2a\u5409\u4ed6\u548c\u5f26\u88ab\u6df7\u54cd\u3001\u5ef6\u8fdf\u3001EQ \u6df9\u5230\u4e0d\u50cf\u5409\u4ed6\uff1bJonny Greenwood \u7684\u5f26\u4e50\uff1b\u5f15\u7528 Elliott Smith\u300aA Fond Farewell\u300b\u3002",
+   "harm": "\u56db\u4e2a\u5409\u4ed6\u548c\u5f26",
+   "kw": [
+    "\u6574\u8f68\u9001\u6548\u679c\u505a\u300c\u9ad8\u7ea7\u56de\u58f0\u300d",
+    "\u6f5c\u5165\u5f0f\u53e0\u5c42",
+    "\u63d2\u503c"
+   ],
+   "tech": [
+    "whole-mix-fx-send",
+    "stealth-layers",
+    "interpolation"
+   ],
+   "facts": "\u5f26\u4e50\uff1aJonny Greenwood \u7f16\u5199\uff0cLondon Contemporary Orchestra \u6f14\u594f\u3002\u5b57\u5e55\u91cc\u88ab\u542c\u6210 Secret\u3002"
+  },
+  {
+   "id": "blonde-godspeed",
+   "t": "Godspeed",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u653e\u4e0b\uff0c\u795d\u4f60\u597d\u3002",
+   "hear": "\u6e29\u6696\u7684 Organ \u548c\u798f\u97f3\u5408\u5531\uff08Kim Burrell\uff09\uff1bIV \u2192 I \u53d8\u683c\u7ec8\u6b62\uff1b\u659c\u6760\u548c\u5f26\uff1b\u6781\u5176\u514b\u5236\uff0c\u4e2d\u95f4 Organ \u6084\u6084\u6362\u6210\u7535\u94a2\u3002",
+   "harm": "\u798f\u97f3\u659c\u6760\u548c\u5f26 + IV \u2192 I",
+   "kw": [
+    "\u53d8\u683c\u7ec8\u6b62 IV \u2192 I",
+    "\u798f\u97f3\u5f0f\u659c\u6760\u548c\u5f26",
+    "A + B \u4e24\u6bb5\u5f0f\u7ed3\u6784"
+   ],
+   "tech": [
+    "plagal-cadence",
+    "gospel-slash-chords",
+    "part-ab-structure"
+   ],
+   "facts": "James Blake \u53c2\u4e0e\u3002"
+  },
+  {
+   "id": "blonde-futurafree",
+   "t": "Futura Free",
+   "a": "Frank Ocean",
+   "al": "Blonde",
+   "y": 2016,
+   "style": "neosoul",
+   "role": "\u4e13\u8f91\u9010\u66f2\u542c\u6790",
+   "src": [
+    "blonde-listen"
+   ],
+   "feel": "\u56de\u5230\u8d77\u70b9\uff0c\u50cf\u7ffb\u76f8\u518c\u3002",
+   "hear": "\u53cd\u5411\u94a2\u7434\u5f00\u5934 + lo-fi \u9f13 + \u5347\u8c03\u4eba\u58f0\uff0c\u547c\u5e94\u300aNikes\u300b\uff1b\u4e0d\u65ad\u5728 take \u4e4b\u95f4\u8df3\uff1b\u540e\u534a\u6bb5\u53d8\u6210\u5bb6\u5ead\u5f55\u97f3\u548c\u670b\u53cb\u8bbf\u8c08\u3002",
+   "harm": "\u4e3b\u5bfc\u52a8\u673a\u6700\u540e\u4e00\u6b21\u51fa\u73b0",
+   "kw": [
+    "\u53cd\u8f6c swell + \u786c\u5207",
+    "\u5347\u8c03\u4eba\u58f0\u505a\u89d2\u8272",
+    "\u8bb0\u5fc6\u62fc\u8d34\uff08brick collage\uff09",
+    "\u8de8\u66f2\u590d\u73b0\u7684\u6c1b\u56f4\u5faa\u73af"
+   ],
+   "tech": [
+    "reverse-swell",
+    "pitched-vocal-character",
+    "brick-collage",
+    "ambient-leitmotif"
+   ],
+   "facts": "\u4e13\u8f91\u6700\u540e\u4e00\u9996\u3002"
   }
  ],
  "audio": {
