@@ -271,6 +271,21 @@ mark{background:var(--amber-soft);color:inherit;padding:0 2px;border-radius:2px}
 .mitem .done{flex:none}
 .links{display:flex;flex-wrap:wrap;gap:6px}
 .links button{all:unset;cursor:pointer;font-size:13px;border:1px solid var(--line);border-radius:99px;padding:4px 12px;color:var(--fg)}
+.drill{list-style:none;margin:0;padding:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.drill>li+li{border-top:1px solid var(--line)}
+.drill a,.drill summary{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;text-decoration:none;color:var(--fg);cursor:pointer;list-style:none;-webkit-tap-highlight-color:transparent}
+.drill summary::-webkit-details-marker{display:none}
+.drill a:active,.drill summary:active{background:var(--bg)}
+.drill .nm{min-width:0;display:flex;flex-direction:column;gap:2px}
+.drill .nm b{font-weight:500;font-size:15px}
+.drill .nm span{font-size:12.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.drill .rt{display:flex;align-items:center;gap:6px;flex:none;color:var(--muted);font-size:12px;font-family:var(--f-mono)}
+.drill .rt::after{content:"›";font-size:18px;line-height:1;color:var(--line)}
+.drill details .rt::after{content:"▾"}
+.drill details[open] summary{background:var(--bg)}
+.drill .dd{padding:4px 14px 14px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.drill-h{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.drill-h h1{font-size:24px;margin:0}
 </style>
 
 <div class="shell">
@@ -530,7 +545,7 @@ function vManuals(){
   const sName=curStyle==="all"?"全部风格":STYLES.find(s=>s.id===curStyle).name;
   return `<div><h1>手册库</h1><p class="lead">${esc(sName)} · ${list.length} 份。点标题打开原手册，点技巧标签跳到技巧索引。</p></div>
    <div class="filters" role="group" aria-label="分类">${cats.map(c=>`<button data-cat="${c}" aria-pressed="${c===curCat}">${c}</button>`).join("")}</div>
-   ${list.length?`<div class="grid">${list.map(manualCard).join("")}</div>`:`<div class="empty">这个分类下还没有手册。</div>`}`;
+   ${list.length?(isM()?`<ul class="mlist">${list.map(mItem).join("")}</ul>`:`<div class="grid">${list.map(manualCard).join("")}</div>`):`<div class="empty">这个分类下还没有手册。</div>`}`;
 }
 function vTech(focus){
   const kinds=[...new Set(TECH.map(t=>t.kind))];
@@ -751,7 +766,7 @@ function vStyle(id){
     body=`<div style="display:flex;flex-direction:column;gap:8px">${body}</div>`;
   }else if(styleTab==="tech"){
     const kinds=[...new Set(tids.map(t=>techById[t].kind))];
-    body=kinds.map(k=>`<h3 style="margin:14px 0 8px;font-size:14px;color:var(--muted)">${esc(k)}</h3><ul class="mlist">${tids.filter(t=>techById[t].kind===k).map(t=>{const x=techById[t];return `<li class="mitem"><b style="font-weight:500">${esc(x.name)}</b><p class="sum">${esc(x.line)}</p><div><button class="chip" data-tech="${t}">详细做法</button></div></li>`}).join("")}</ul>`).join("");
+    body=kinds.map(k=>`<h3 style="margin:14px 0 8px;font-size:14px;color:var(--muted)">${esc(k)}</h3><ul class="mlist">${tids.filter(t=>techById[t].kind===k).map(t=>{const x=techById[t];return `<li class="mitem"><b style="font-weight:500">${esc(x.name)}</b><p class="sum">${esc(x.line)}</p><div><a class="chip" href="#t-${t}" style="text-decoration:none">详细做法 ›</a></div></li>`}).join("")}</ul>`).join("");
   }else{
     body=`<ul class="mlist">${stages.map(x=>`<li class="mitem"><div class="eyebrow">阶段 ${x.i+1}</div><b style="font-weight:500">${esc(x.p.t)}</b><p class="sum" style="-webkit-line-clamp:4">${esc(x.p.d)}</p>
       <ol class="srows flat">${x.m.map(id=>{const m=mById[id];return `<li class="srow nonum"><a class="sl" href="#read-${id}"><b>${esc(m.title)}</b></a>${doneBtn(id).replace('class="done"','class="hmini"')}</li>`}).join("")}</ol></li>`).join("")}</ul>`;
@@ -765,8 +780,78 @@ function vStyle(id){
     <div class="seg">${tabs.map(([k,n,c])=>`<button data-stab="${k}" aria-pressed="${styleTab===k}">${n} ${c}</button>`).join("")}</div>
     ${body}</div>`;
 }
+/* ---- mobile drill-down: list first, then detail ---- */
+const row=(href,name,sub,right)=>`<li><a href="${href}"><span class="nm"><b>${esc(name)}</b>${sub?`<span>${esc(sub)}</span>`:""}</span><span class="rt">${right??""}</span></a></li>`;
+const acc=(name,body,right)=>`<li><details><summary><span class="nm"><b>${esc(name)}</b></span><span class="rt">${right??""}</span></summary><div class="dd">${body}</div></details></li>`;
+const dhead=(back,backTxt,title,lead)=>`<div class="drill-h"><a class="back" href="${back}">← ${esc(backTxt)}</a><h1>${esc(title)}</h1>${lead?`<p class="lead" style="margin:0">${lead}</p>`:""}</div>`;
+let DEVS=null;
+function devList(){if(!DEVS){const map={};MANUALS.forEach(m=>m.devices.forEach(d=>(map[d]=map[d]||[]).push(m.id)));DEVS=Object.entries(map).sort((a,b)=>b[1].length-a[1].length||a[0].localeCompare(b[0]))}return DEVS}
+function mRef(){
+  return dhead("#styles","全部风格","速查","做音乐时回查用。")+`<ul class="drill">
+   ${row("#ref-devices","设备索引","某个设备在哪些手册里用过",devList().length)}
+   ${row("#ref-cheats","速查","常用数字和规则",CHEATS.length)}
+   ${row("#ref-gloss","术语","乐理和制作术语解释",GLOSS.length)}</ul>`;
+}
+function mDevices(){
+  return dhead("#ref","速查","设备索引",`${devList().length} 个设备，按使用次数排序。点进去看用过它的手册。`)+
+   `<ul class="drill">${devList().map(([d,ids],i)=>row("#dev-"+i,d,"",ids.length)).join("")}</ul>`;
+}
+function mDevice(i){
+  const e=devList()[+i]; if(!e)return mDevices();
+  const ms=e[1].map(id=>mById[id]).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date));
+  return dhead("#ref-devices","设备索引",e[0],`出现在 ${ms.length} 份手册里。`)+`<ul class="mlist">${ms.map(mItem).join("")}</ul>`;
+}
+function mCheats(){
+  return dhead("#ref","速查","速查",`${CHEATS.length} 条，点开看规则。`)+
+   `<ul class="drill">${CHEATS.map(c=>acc(c[0],`<div class="mono" style="font-size:13px">${esc(c[1])}</div>${c[2]?`<div style="color:var(--muted)">${esc(c[2])}</div>`:""}`)).join("")}</ul>`;
+}
+function mGloss(){
+  return dhead("#ref","速查","术语",`${GLOSS.length} 个，点开看解释。`)+
+   `<ul class="drill">${[...GLOSS].sort((a,b)=>a[0].localeCompare(b[0],"zh")).map(g=>acc(g[0],esc(g[1]))).join("")}</ul>`;
+}
+function techKinds(){return [...new Set(TECH.map(t=>t.kind))].map(k=>[k,TECH.filter(t=>t.kind===k)]).sort((a,b)=>b[1].length-a[1].length)}
+function mTechKinds(){
+  return dhead("#styles","全部风格","技巧索引",`${TECH.length} 个可复用技巧，先选类型。`)+
+   `<ul class="drill">${techKinds().map(([k,ts],i)=>row("#tk-"+i,k,ts.slice(0,3).map(t=>t.name).join(" · ")+(ts.length>3?" …":""),ts.length)).join("")}</ul>`;
+}
+function mTechKind(i){
+  const e=techKinds()[+i]; if(!e)return mTechKinds();
+  const ts=[...e[1]].sort((a,b)=>b.manuals.length-a.manuals.length);
+  return dhead("#techniques","技巧索引",e[0],`${ts.length} 个，按出现的手册数排序。`)+
+   `<ul class="drill">${ts.map(t=>row("#t-"+t.id,t.name,t.line,t.manuals.length||"")).join("")}</ul>`;
+}
+function mTech(id){
+  const t=techById[id]; if(!t)return mTechKinds();
+  const ki=techKinds().findIndex(([k])=>k===t.kind);
+  const ss=SONGS.filter(x=>x.tech.includes(id));
+  return dhead("#tk-"+ki,t.kind,t.name,"")+`<div class="mitem" style="gap:10px"><p style="margin:0">${esc(t.line)}</p>
+     <div><div class="eyebrow" style="margin-bottom:4px">怎么做</div><p style="margin:0;font-size:14px">${esc(t.how)}</p></div></div>
+   ${t.manuals.length?`<h3 style="margin:16px 0 8px;font-size:14px;color:var(--muted)">出现在 ${t.manuals.length} 份手册</h3><ul class="mlist">${t.manuals.map(id=>mItem(mById[id])).join("")}</ul>`:""}
+   ${ss.length?`<h3 style="margin:16px 0 8px;font-size:14px;color:var(--muted)">相关曲目 ${ss.length}</h3><div class="mitem"><ol class="srows flat">${ss.map(x=>songRow(x,null,true)).join("")}</ol></div>`:""}`;
+}
+function mPath(){
+  return dhead("#styles","全部风格","学习路线","由浅入深的阶段，点进去看这一阶段的手册。")+
+   `<ul class="drill">${PATH.map((p,i)=>{const n=p.m.filter(id=>done[id]).length;return row("#ps-"+i,`${i+1}. ${p.t}`,p.d,`${n}/${p.m.length}`)}).join("")}</ul>`;
+}
+function mStage(i){
+  const p=PATH[+i]; if(!p)return mPath();
+  return dhead("#path","学习路线",`${+i+1}. ${p.t}`,esc(p.d))+`<ul class="mlist">${p.m.filter(id=>mById[id]).map(id=>mItem(mById[id])).join("")}</ul>`;
+}
+function mStuckList(){
+  return dhead("#styles","全部风格","卡点与对策","学习中卡住的地方，点进去看原因和对策。")+
+   `<ul class="drill">${STUCK.map(e=>row("#stuck-"+e.id,e.title,e.stuck.slice(0,60)+"…",STATUS[statusOf(e)])).join("")}</ul>`;
+}
+function mStuckOne(id){const keep=STUCK;STUCK=STUCK.filter(e=>e.id===id);const html=(keep.length>1?`<a class="back" href="#stuck">← 卡点列表</a>`:"")+vStuck();STUCK=keep;return html}
+function mRoute(h){
+  if(h==="ref")return mRef(); if(h==="ref-devices")return mDevices(); if(h==="ref-cheats")return mCheats(); if(h==="ref-gloss")return mGloss();
+  if(h.startsWith("dev-"))return mDevice(h.slice(4));
+  if(h==="techniques")return mTechKinds(); if(h.startsWith("tk-"))return mTechKind(h.slice(3)); if(h.startsWith("t-"))return mTech(h.slice(2));
+  if(h==="path")return mPath(); if(h.startsWith("ps-"))return mStage(h.slice(3));
+  if(h==="stuck"&&STUCK.length>1)return mStuckList(); if(h.startsWith("stuck-"))return mStuckOne(h.slice(6));
+  return null;
+}
 function syncTabbar(h){
-  const cur=h.startsWith("s-")||h==="styles"||h==="home"||h===""?"styles":(h==="stuck"?"stuck":(h==="ref"?"ref":""));
+  const cur=h.startsWith("s-")||h==="styles"||h==="home"||h===""?"styles":(h.startsWith("stuck")?"stuck":(/^(ref|dev-)/.test(h)?"ref":""));
   document.querySelectorAll(".tabbar button").forEach(b=>b.setAttribute("aria-current",String(b.dataset.tab===cur)));
 }
 /* lazy manual bodies on mobile */
@@ -788,6 +873,9 @@ function render(){
       if(h.startsWith("s-"))store.set("atlas-lastlist","#"+h);
       view.innerHTML=`<div class="wrap" style="max-width:none">${h.startsWith("s-")?vStyle(h.slice(2)):vStyles()}</div>`;
       if(!render.keepY)window.scrollTo(0,0);render.keepY=false;return}
+    if(!q&&ALIAS[h]&&h!=="listen"){h=ALIAS[h][0]==="ref"?"ref-"+(ALIAS[h][1]==="cheats"?"cheats":"devices"):h;history.replaceState(null,"","#"+h)}
+    const mr=!q&&mRoute(h);
+    if(mr){clearInterval(phTimer);view.innerHTML=`<div class="wrap" style="max-width:none">${mr}</div>`;if(!render.keepY)window.scrollTo(0,0);render.keepY=false;return}
     if(!q&&h.startsWith("read-")&&!BODY[h.slice(5)]){const rid=h.slice(5);view.innerHTML='<div class="empty">正在载入手册…</div>';loadBody(rid).then(()=>{if(location.hash==="#read-"+rid)render()});return}
   }
   if(!q&&h.startsWith("read-")){store.set("atlas-last",h.slice(5));
@@ -842,10 +930,11 @@ document.addEventListener("click",e=>{
   if(b.dataset.view){document.getElementById("q").value="";location.hash=b.dataset.view;if(location.hash==="#"+b.dataset.view)render()}
   else if(b.dataset.style){curStyle=b.dataset.style;curCat="全部";document.getElementById("q").value="";if(location.hash!=="#manuals")location.hash="manuals";else render()}
   else if(b.dataset.cat){curCat=b.dataset.cat;render()}
+  else if(b.dataset.tech&&isM()){document.getElementById("q").value="";location.hash="t-"+b.dataset.tech}
   else if(b.dataset.tech){focusTech=b.dataset.tech;document.getElementById("q").value="";if(location.hash!=="#techniques")location.hash="techniques";else render()}
   else if(b.dataset.done){const id=b.dataset.done;done[id]=!done[id];if(!done[id])delete done[id];store.set("atlas-done",done);
     document.querySelectorAll(`[data-done="${id}"]`).forEach(x=>{x.setAttribute("aria-pressed",String(!!done[id]));x.textContent=done[id]?"✓ 已练":"标记已练"});
-    if(location.hash==="#path"||location.hash===""||location.hash==="#home"||/^#(s-|styles)/.test(location.hash)){const y=scrollY;render.keepY=true;render();scrollTo(0,y)}}
+    if(location.hash==="#path"||location.hash===""||location.hash==="#home"||/^#(s-|styles|ps-|path|tk-|t-|dev-)/.test(location.hash)){const y=scrollY;render.keepY=true;render();scrollTo(0,y)}}
 });
 let t;document.getElementById("q").addEventListener("input",()=>{clearTimeout(t);t=setTimeout(render,120)});
 document.addEventListener("keydown",e=>{if(e.key==="/"&&document.activeElement.tagName!=="INPUT"){e.preventDefault();document.getElementById("q").focus()}if(e.key==="Escape"){const q=document.getElementById("q");q.value="";q.blur();render()}});
