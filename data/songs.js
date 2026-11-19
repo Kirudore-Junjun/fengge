@@ -5311,6 +5311,110 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "ambient-leitmotif"
    ],
    "facts": "\u4e13\u8f91\u6700\u540e\u4e00\u9996\u3002"
+  },
+  {
+   "id": "jaron-wormhole-groove",
+   "t": "\u866b\u6d1e\u6cd5\u793a\u8303 Groove\uff08Cm11 \u2194 E\u266dm11\uff09",
+   "a": "Jaron Lopez",
+   "al": "Make Chords That Vibe\uff08Episode 2\uff09",
+   "y": null,
+   "style": "base",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "wormhole-chords"
+   ],
+   "feel": "\u8f7b\u3001\u5f80\u4e0a\u98d8\uff0c\u53c8\u4e00\u76f4\u5728\u8df3\uff1a\u6ca1\u6709\u201c\u6545\u4e8b\u201d\uff0c\u53ea\u6709\u5f80\u524d\u63a8\u7684\u5f8b\u52a8\u3002",
+   "hear": "\u7b2c 1 \u62cd\u53ea\u6709\u7b2c\u4e00\u4e2a Cm11 \u843d\u5728\u62cd\u4e0a\uff0c\u5176\u4f59\u548c\u5f26\u90fd\u63d0\u524d\u534a\u62cd\u8fdb\u6765\uff1b\u4e24\u4e2a\u516b\u5ea6\u7684 B\u266d \u4e00\u76f4\u5728\u9876\u4e0a\u4e0d\u52a8\uff0c\u6bcf\u5c0f\u8282\u7b2c 3 \u62cd\u518d\u6572\u4e24\u4e0b\uff1b\u7b2c 8 \u5c0f\u8282\u548c\u5f26\u7a81\u7136\u77ed\u6389\uff0c\u4e00\u6761\u53ea\u7528 E\u266d\u3001F\u3001B\u266d \u7684\u5c0f\u65cb\u5f8b\u8865\u4e0a\uff0c\u7b2c 16 \u5c0f\u8282\u5b83\u6700\u540e\u5f80\u4e0a\u4e00\u7ffb\u3002",
+   "harm": "Cm11\uff08C2 G2 B\u266d2 D3 E\u266d3 F3 B\u266d3\uff09| E\u266dm11\uff08E\u266d2 A\u266d2 B\u266d2 D\u266d3 F3 G\u266d3 B\u266d3\uff09\u00d73\uff0c8 \u5c0f\u8282\u4e24\u904d\uff1b\u5171\u540c\u97f3 E\u266d F B\u266d",
+   "kw": [
+    "\u866b\u6d1e\u6cd5",
+    "\u5171\u540c\u97f3",
+    "m11",
+    "\u5c0f\u4e8c\u5ea6",
+    "\u53cd\u62cd",
+    "house",
+    "118 BPM"
+   ],
+   "tech": [
+    "wormhole-jump",
+    "common-tone-octaves",
+    "squeeze-semitone",
+    "launchpad-linger",
+    "common-tone-restrike",
+    "common-tone-melody",
+    "drums-align-parts",
+    "bass-hint-origin"
+   ],
+   "facts": "Jaron Lopez \u6559\u7a0b\u91cc\u73b0\u573a\u642d\u7684\u793a\u8303\u6bb5\u843d\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\uff1a118 BPM\u300116 \u5c0f\u8282\uff08\u7ea6 32 \u79d2\uff09\uff0chouse \u65b9\u5411\u7684\u9f13\u3002\u9644\u5e26\u7684 MIDI \u548c\u8bd5\u542c\u662f\u6309\u89c6\u9891\u753b\u9762\u548c\u8bb2\u89e3\u590d\u539f\u7684\uff0c\u4e0d\u662f\u539f\u5de5\u7a0b\u3002"
+  },
+  {
+   "id": "jaron-wormhole-groove-ep1",
+   "t": "\u866b\u6d1e\u6cd5\u793a\u8303 Groove \u00b7 \u7b2c 1 \u96c6\uff08Cm11 \u2194 A\u266dm11\uff09",
+   "a": "Jaron Lopez",
+   "al": "Make Chords That Vibe\uff08Episode 1\uff09",
+   "y": null,
+   "style": "base",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "wormhole-ep1"
+   ],
+   "feel": "\u4e24\u79cd\u989c\u8272\u4ea4\u66ff\uff0c\u5374\u50cf\u4e00\u76f4\u5728\u540c\u4e00\u4e2a\u623f\u95f4\u91cc\uff1b\u9f13\u5f88\u8f7b\u5f88\u788e\uff0c\u53ea\u6709\u62cd\u624b\u548c\u6362\u548c\u5f26\u90a3\u4e00\u4e0b\u662f\u91cd\u7684\u3002",
+   "hear": "\u4e0a\u65b9\u7684\u97f3\u4e00\u76f4\u6324\u5728\u540c\u4e00\u4e2a\u516b\u5ea6\u91cc\uff0c\u53ea\u6709\u4f4e\u97f3\u5728 C \u548c A\u266d \u4e4b\u95f4\u6362\uff1b\u6700\u9ad8\u97f3\u8fde\u8d77\u6765\u662f D\u3001B\u266d\u3001F\u3001E\u266d\uff1b\u524d\u4e09\u4e2a\u548c\u5f26\u77ed\u4fc3\u3001\u5728\u7b2c 3 \u62cd\u540e\u534a\u518d\u6572\u4e00\u4e0b\uff0c\u4e4b\u540e\u53d8\u6210\u957f\u97f3\uff1bride \u5728\u6362\u548c\u5f26\u7684 4& \u7a81\u7136\u91cd\u4e00\u4e0b\u3002",
+   "harm": "Cm11 | A\u266dm11 | Cm11 | A\u266dm11 | C9sus4 | A\u266dm11 | C9sus4 | A\u266dm11\uff08\u6bcf\u6b21\u4e0d\u540c\u6392\u5217\uff09\uff1b\u5171\u540c\u97f3 E\u266d B\u266d\uff1b\u9876\u97f3 D B\u266d F E\u266d D D\u266d F E\u266d",
+   "kw": [
+    "\u866b\u6d1e\u6cd5",
+    "\u96c6\u7fa4\u533a",
+    "\u9876\u97f3\u65cb\u5f8b",
+    "\u5171\u540c\u97f3",
+    "\u529b\u5ea6",
+    "house",
+    "123 BPM"
+   ],
+   "tech": [
+    "wormhole-jump",
+    "cluster-zone",
+    "home-key-top-line",
+    "voicing-rotation",
+    "accent-the-change",
+    "velocity-ladder",
+    "kick-to-and4",
+    "bass-common-glue"
+   ],
+   "facts": "Jaron Lopez \u866b\u6d1e\u6cd5\u7cfb\u5217\u7b2c 1 \u96c6\u91cc\u73b0\u573a\u642d\u7684\u793a\u8303\u6bb5\u843d\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\uff1a123 BPM\u30018 \u5c0f\u8282\u4e00\u8f6e\uff0c\u9f13\u7528\u4ed6\u81ea\u5df1\u7684 Nimble \u9f13\u7ec4\u3002\u9644\u5e26\u7684 MIDI \u548c\u8bd5\u542c\u6309\u89c6\u9891\u622a\u56fe\uff08Ableton \u94a2\u7434\u5377\u5e18\u548c\u529b\u5ea6\u6570\u5b57\uff09\u590d\u539f\uff0c\u4e0d\u662f\u539f\u5de5\u7a0b\uff1b\u7ed3\u5c3e\u7684\u94a2\u7434\u65cb\u5f8b\u88c5\u9970\u6ca1\u6709\u590d\u539f\u3002"
+  },
+  {
+   "id": "jaron-wormhole-six",
+   "t": "\u866b\u6d1e\u6cd5\u793a\u8303 \u00b7 \u516d\u4e2a\u53bb\u5904\uff08Cm11 \u2194 D\u266dm11\uff09",
+   "a": "Jaron Lopez",
+   "al": "Make Chords That Vibe\uff086 Places a Chord Can Go\uff09",
+   "y": null,
+   "style": "base",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "wormhole-six"
+   ],
+   "feel": "\u6574\u4f53\u5176\u5b9e\u53ea\u662f\u5f80\u4e0a\u632a\u4e86\u534a\u97f3\uff0c\u542c\u8d77\u6765\u5374\u50cf\u6709\u4e1c\u897f\u505c\u5728\u539f\u5730\u3001\u9876\u4e0a\u5728\u5f80\u4e0b\u843d\uff1a\u4e00\u5c42\u96fe\u76d6\u4f4f\u4e86\u5e73\u79fb\u3002",
+   "hear": "E\u266d \u5728\u4e2d\u95f4\u7eb9\u4e1d\u4e0d\u52a8\uff0c\u53cd\u62cd\u4e0a\u4e00\u76f4\u5728\u6572\uff1b\u5b83\u4e0b\u9762\u5148\u8d34\u7740 D\uff0c\u6362\u548c\u5f26\u540e\u53d8\u6210\u4e0a\u9762\u8d34\u7740 E\uff1b\u9876\u97f3\u4ece G \u843d\u5230 G\u266d\uff0c\u4f4e\u97f3\u5374\u4ece C \u5347\u5230 D\u266d\uff1bCm11 \u7ed3\u5c3e\u6709\u534a\u62cd\u7a7a\u767d\uff1b\u4f4e\u97f3\u533a\u6709\u4e00\u6761 F G A\u266d G\u266d \u7684\u5c0f\u5706\u5708\u526f\u65cb\u5f8b\u3002",
+   "harm": "Cm11\uff08C2 F2 B\u266d2 D3 E\u266d3 G3\uff09\u2194 D\u266dm11\uff08D\u266d2 A\u266d2 B2 E\u266d3 E3 G\u266d3\uff09\uff0c\u4e00\u5c0f\u8282\u4e00\u6362\uff0c8 \u5c0f\u8282\uff1b\u5171\u540c\u97f3 E\u266d",
+   "kw": [
+    "\u866b\u6d1e\u6cd5",
+    "\u516d\u4e2a\u53bb\u5904",
+    "\u534a\u97f3\u5e73\u79fb",
+    "\u5171\u540c\u97f3",
+    "\u53cd\u5411\u8fdb\u884c",
+    "\u526f\u65cb\u5f8b",
+    "\u56db\u5ea6\u53e0\u7f6e"
+   ],
+   "tech": [
+    "laser-common-tone",
+    "mirror-semitone-flank",
+    "outer-voice-contrary",
+    "quartal-m11",
+    "roots-to-bass-counterline",
+    "chord-tone-walk",
+    "eighth-gap"
+   ],
+   "facts": "Jaron Lopez \u866b\u6d1e\u6cd5\u7cfb\u5217\u603b\u7eb2\u4e00\u96c6\u91cc\u7684\u793a\u8303\u6bb5\u843d\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\u3002\u89c6\u9891\u6ca1\u6709\u7ed9\u622a\u56fe\u91cc\u7684\u97f3\u540d\uff0c\u9644\u5e26\u7684 MIDI \u6309\u5b57\u5e55\u63a8\u51fa\u97f3\u9ad8\uff1b\u901f\u5ea6\u3001\u9f13\u578b\u548c\u8f6c\u6298\u97f3\u89c6\u9891\u6ca1\u6709\u62c6\u89e3\uff0cMIDI \u91cc\u7528 120 BPM \u548c\u5360\u4f4d\u7684\u7b80\u5355 house \u9f13\u3002"
   }
  ],
  "audio": {
@@ -5667,6 +5771,93 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
      "name": "\u515c\u5708 - harmony study (C).mid",
      "label": "\u548c\u58f0\u9aa8\u67b6 MIDI \u00b7 C \u8c03\u89c6\u89d2\uff08\u8bfe\u4e0a\u7684\u8c03\uff09",
      "note": "MIDI \u00b7 \u6574\u4f53\u964d\u5168\u97f3\uff0c\u89e6\u53d1\u952e\u4e0d\u79fb\u8c03",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "jaron-wormhole-groove": {
+   "song": "Jaron Lopez - Wormhole groove (Cm11 / Ebm11)",
+   "files": [
+    {
+     "path": "audio/jaron-wormhole-groove/wormhole-groove-study.mp3",
+     "name": "Wormhole groove - study render.mp3",
+     "label": "\u6574\u6bb5\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 16 \u5c0f\u8282 \u00b7 \u5e26\u4e00\u70b9 swing \u00b7 \u4e0d\u662f\u539f\u89c6\u9891\u97f3\u8272",
+     "mb": 0.8,
+     "play": true
+    },
+    {
+     "path": "audio/jaron-wormhole-groove/wormhole-full-arrangement.mid",
+     "name": "Wormhole groove - full arrangement.mid",
+     "label": "\u5b8c\u6574 MIDI\uff08\u548c\u5f26 / \u65cb\u5f8b / \u8d1d\u65af / \u9f13\uff09",
+     "note": "MIDI \u00b7 118 BPM \u00b7 16 \u5c0f\u8282 \u00b7 GM \u9f13\u4f4d \u00b7 \u65e0 swing",
+     "mb": 0.01,
+     "play": false
+    },
+    {
+     "path": "audio/jaron-wormhole-groove/wormhole-voicing-study.mid",
+     "name": "Wormhole groove - voicing study.mid",
+     "label": "voicing \u5bf9\u7167 MIDI",
+     "note": "MIDI \u00b7 4 \u5c0f\u8282\uff1a\u4e24\u4e2a\u9ed8\u8ba4\u6392\u5217 + \u4e24\u4e2a voicing",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "jaron-wormhole-groove-ep1": {
+   "song": "Jaron Lopez - Wormhole groove ep1 (Cm11 / Abm11)",
+   "files": [
+    {
+     "path": "audio/jaron-wormhole-groove-ep1/ep1-groove-study.mp3",
+     "name": "Wormhole groove ep1 - study render.mp3",
+     "label": "\u6574\u6bb5\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 8 \u5c0f\u8282\u5faa\u73af\u4e24\u904d \u00b7 \u7ea6 31 \u79d2 \u00b7 \u4e0d\u662f\u539f\u89c6\u9891\u97f3\u8272",
+     "mb": 0.72,
+     "play": true
+    },
+    {
+     "path": "audio/jaron-wormhole-groove-ep1/ep1-full-arrangement.mid",
+     "name": "Wormhole groove ep1 - full arrangement.mid",
+     "label": "\u5b8c\u6574 MIDI\uff08\u548c\u5f26 / \u8d1d\u65af / \u9f13\uff09",
+     "note": "MIDI \u00b7 123 BPM \u00b7 8 \u5c0f\u8282 \u00b7 GM \u9f13\u4f4d \u00b7 \u529b\u5ea6\u6309\u622a\u56fe",
+     "mb": 0.01,
+     "play": false
+    },
+    {
+     "path": "audio/jaron-wormhole-groove-ep1/ep1-voicing-study.mid",
+     "name": "Wormhole groove ep1 - voicing study.mid",
+     "label": "voicing \u5bf9\u7167 MIDI",
+     "note": "MIDI \u00b7 10 \u5c0f\u8282\uff1a\u4e24\u4e2a\u9ed8\u8ba4\u6392\u5217 + \u516b\u79cd\u6392\u5217",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "jaron-wormhole-six": {
+   "song": "Jaron Lopez - Wormhole six places (Cm11 / Dbm11)",
+   "files": [
+    {
+     "path": "audio/jaron-wormhole-six/six-groove-study.mp3",
+     "name": "Wormhole six places - study render.mp3",
+     "label": "\u6574\u6bb5\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 8 \u5c0f\u8282\u5faa\u73af\u4e24\u904d \u00b7 \u7ea6 32 \u79d2 \u00b7 \u9f13\u662f\u5360\u4f4d\u7684",
+     "mb": 0.73,
+     "play": true
+    },
+    {
+     "path": "audio/jaron-wormhole-six/six-full-arrangement.mid",
+     "name": "Wormhole six places - full arrangement.mid",
+     "label": "\u5b8c\u6574 MIDI\uff08\u548c\u5f26 / E\u266d \u53cd\u62cd / \u526f\u65cb\u5f8b / \u8d1d\u65af / \u5360\u4f4d\u9f13\uff09",
+     "note": "MIDI \u00b7 120 BPM\uff08\u63a8\u5b9a\uff09 \u00b7 8 \u5c0f\u8282 \u00b7 GM \u9f13\u4f4d",
+     "mb": 0.01,
+     "play": false
+    },
+    {
+     "path": "audio/jaron-wormhole-six/six-voicing-study.mid",
+     "name": "Wormhole six places - voicing study.mid",
+     "label": "\u4e94\u6b65 voicing \u5bf9\u7167 MIDI",
+     "note": "MIDI \u00b7 8 \u5c0f\u8282\uff1a\u9ed8\u8ba4 \u2192 E\u266d/E \u4e0a\u79fb \u2192 G \u4e0a\u79fb \u2192 F \u4e0b\u79fb",
      "mb": 0.01,
      "play": false
     }
