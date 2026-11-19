@@ -5488,6 +5488,39 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "bass-neighbor-morsel"
    ],
    "facts": "Jaron Lopez \u6559\u7a0b\u91cc\u7684\u793a\u8303\u6bb5\u843d\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\uff1a122 BPM\u30018 \u5c0f\u8282\u3002\u89c6\u9891\u6ca1\u6709\u622a\u56fe\uff0c\u9644\u5e26 MIDI \u7684\u548c\u5f26\u6392\u5217\u6309\u5b57\u5e55\u9010\u6b65\u8fd8\u539f\uff08\u53ef\u4fe1\uff09\uff1b\u9f13\u548c\u8d1d\u65af\u6309\u5b57\u5e55\u8fd1\u4f3c\u91cd\u5efa\uff0c\u529b\u5ea6\u6570\u503c\u662f\u7b14\u8bb0\u8bbe\u5b9a\u7684\u3002"
+  },
+  {
+   "id": "jaron-minor-ninth",
+   "t": "\u9a71\u9664\u5c0f\u4e5d\u5ea6 \u00b7 \u793a\u8303\uff08Am9 \u2192 Dm9\uff09",
+   "a": "Jaron Lopez",
+   "al": "LoFi Melodies like FKJ, Tom Misch, Nujabes & L\u2019ind\u00e9cis",
+   "y": null,
+   "style": "lofihh",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "minor-ninth"
+   ],
+   "feel": "\u67d4\u548c\u3001\u7235\u58eb\u5473\u7684 lo-fi \u5faa\u73af\uff1b\u56db\u904d\u5404\u6709\u4e00\u70b9\u4e0d\u540c\uff0c\u4f46\u90fd\u4e0d\u523a\u8033\u3002",
+   "hear": "\u6bcf\u4e24\u5c0f\u8282\u65cb\u5f8b\u5148\u5728\u548c\u5f26\u91cc\u5347\u4e0a\u53bb\uff08E G B\uff09\uff0c\u518d\u5230\u9ad8\u5904\u843d\u56de E\uff1b\u7b2c\u4e8c\u3001\u56db\u904d\u4e0b\u9762\u7684\u548c\u5f26\u5728\u7b2c 4 \u5c0f\u8282\u7a81\u7136\u62ac\u9ad8\u534a\u97f3\u518d\u56de\u6765\uff1b\u7b2c\u4e09\u904d\u65cb\u5f8b\u53d8\u6210\u4e00\u4e32\u5341\u516d\u5206\uff1b\u6700\u540e\u4e00\u62cd\u4e00\u4e2a\u5f88\u201c\u8fa3\u201d\u7684\u548c\u5f26\u628a\u5faa\u73af\u5e26\u56de\u5f00\u5934\u3002",
+   "harm": "Am9 | Dm9\uff084& \u63d0\u524d\uff09\uff1b\u7b2c 4\u30018 \u5c0f\u8282 Dm9 \u2192 E\u266dm9 \u2192 Dm9\uff1b\u7b2c 8 \u5c0f\u8282\u672b E7(\u266f9\u266d13)",
+   "kw": [
+    "\u5c0f\u4e5d\u5ea6",
+    "\u7ecf\u8fc7\u97f3",
+    "\u91cd\u914d\u548c\u58f0",
+    "\u51cf\u901f\u5e26",
+    "lo-fi",
+    "jazzy"
+   ],
+   "tech": [
+    "minor9-hunt",
+    "minor9-swap-note",
+    "structural-vs-passing",
+    "reharm-for-melody",
+    "halfstep-speed-bump",
+    "rotate-fixes",
+    "altered-dominant-turnaround"
+   ],
+   "facts": "Jaron Lopez \u65e9\u671f\u6559\u7a0b\u91cc\u7684\u793a\u8303\u5faa\u73af\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\u3002\u9644\u5e26 MIDI \u7684\u94a2\u7434\u6309\u89c6\u9891\u622a\u56fe\uff08Ableton \u94a2\u7434\u5377\u5e18\uff0c8 \u5c0f\u8282\uff09\u9010\u4e2a\u8fd8\u539f\uff1b\u901f\u5ea6\u89c6\u9891\u6ca1\u8bf4\uff0c\u6309 82 BPM \u5199\uff1b\u9f13\u662f\u5360\u4f4d\u7684\u3002"
   }
  ],
  "audio": {
@@ -5989,6 +6022,35 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
      "name": "Voicing stairs - voicing study.mid",
      "label": "\u6392\u5217\u5bf9\u7167 MIDI",
      "note": "MIDI \u00b7 6 \u5c0f\u8282\uff1a\u4e24\u4e2a\u9ed8\u8ba4\u6392\u5217 + \u56db\u4e2a\u6700\u7ec8\u6392\u5217",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "jaron-minor-ninth": {
+   "song": "Jaron Lopez - Minor ninth (Am9 / Dm9)",
+   "files": [
+    {
+     "path": "audio/jaron-minor-ninth/minor9-groove-study.mp3",
+     "name": "Minor ninth - study render.mp3",
+     "label": "\u6574\u6bb5\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 8 \u5c0f\u8282\u5faa\u73af\u4e24\u904d \u00b7 \u7ea6 47 \u79d2 \u00b7 \u9f13\u662f\u5360\u4f4d\u7684",
+     "mb": 1.07,
+     "play": true
+    },
+    {
+     "path": "audio/jaron-minor-ninth/minor9-full-arrangement.mid",
+     "name": "Minor ninth - full arrangement.mid",
+     "label": "\u5b8c\u6574 MIDI\uff08\u94a2\u7434\u6309\u622a\u56fe + \u5360\u4f4d\u9f13\uff09",
+     "note": "MIDI \u00b7 82 BPM\uff08\u63a8\u5b9a\uff09 \u00b7 8 \u5c0f\u8282",
+     "mb": 0.01,
+     "play": false
+    },
+    {
+     "path": "audio/jaron-minor-ninth/minor9-interval-study.mid",
+     "name": "Minor ninth - interval study.mid",
+     "label": "\u97f3\u7a0b\u8868\u4e0e\u5bf9\u7167 MIDI",
+     "note": "MIDI \u00b7 0\u201313 \u534a\u97f3\u9010\u4e2a\u5f39 + E3/F4\u3001E3/G4\u3001F3/F4",
      "mb": 0.01,
      "play": false
     }
