@@ -5415,6 +5415,41 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "eighth-gap"
    ],
    "facts": "Jaron Lopez \u866b\u6d1e\u6cd5\u7cfb\u5217\u603b\u7eb2\u4e00\u96c6\u91cc\u7684\u793a\u8303\u6bb5\u843d\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\u3002\u89c6\u9891\u6ca1\u6709\u7ed9\u622a\u56fe\u91cc\u7684\u97f3\u540d\uff0c\u9644\u5e26\u7684 MIDI \u6309\u5b57\u5e55\u63a8\u51fa\u97f3\u9ad8\uff1b\u901f\u5ea6\u3001\u9f13\u578b\u548c\u8f6c\u6298\u97f3\u89c6\u9891\u6ca1\u6709\u62c6\u89e3\uff0cMIDI \u91cc\u7528 120 BPM \u548c\u5360\u4f4d\u7684\u7b80\u5355 house \u9f13\u3002"
+  },
+  {
+   "id": "jaron-dorian-two",
+   "t": "\u4e24\u4e2a Dorian \u5c0f\u548c\u5f26 \u00b7 \u793a\u8303\uff08Fm9 \u2194 E\u266dm9\uff09",
+   "a": "Jaron Lopez",
+   "al": "Make Chords Like DOMi & JD Beck - Kiefer - Flying Lotus",
+   "y": 2022,
+   "style": "base",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "dorian-two"
+   ],
+   "feel": "\u4e00\u4e2a\u6175\u61d2\u7684\u955c\u5934\u505c\u5728\u4e3b\u89d2\u8eab\u4e0a\uff1a\u548c\u5f26\u5728\u6643\uff0c\u6c1b\u56f4\u4e0d\u8d70\u3002",
+   "hear": "E\u266dm9 \u603b\u6bd4\u62cd\u5b50\u65e9\u4e00\u70b9\u8fdb\u6765\uff0cFm9 \u7684\u91cd\u590d\u5374\u665a\u534a\u62cd\uff1b\u9876\u4e0a\u7684\u97f3\u65f6\u9ad8\u65f6\u4f4e\u6362\u51fa\u65cb\u5f8b\uff1b\u5faa\u73af\u672b\u5c3e\u4e00\u4e2a Em9 \u534a\u97f3\u6ed1\u56de F\uff1b\u5f26\u4e50\u4e00\u76f4\u62c9\u7740 B\u266d\u3002",
+   "harm": "Fm9 | E\u266dm9 | Fm9 | E\u266dm9 (Em9)\uff0c\u90fd\u7528 Dorian\uff1b\u97f3\u9636\u5171\u540c\u97f3 F A\u266d B\u266d C E\u266d\uff0c\u5f26\u4e50\u62c9 B\u266d",
+   "kw": [
+    "Dorian",
+    "\u5171\u540c\u97f3",
+    "\u63d0\u524d",
+    "\u5ef6\u540e",
+    "\u6eda\u594f",
+    "\u7ecf\u8fc7\u548c\u5f26",
+    "jazz beat"
+   ],
+   "tech": [
+    "dorian-every-minor",
+    "scale-common-tones",
+    "anticipate-and-delay",
+    "top-note-octave-drop",
+    "cascade-chord",
+    "double-and-arp",
+    "bass-in-own-dorian",
+    "melody-from-chord-mute"
+   ],
+   "facts": "Jaron Lopez \u4e00\u652f\u65e9\u671f\u6559\u7a0b\uff08\u6309\u89c6\u9891\u91cc\u5ba3\u5e03\u7684 beat battle \u65e5\u671f\u63a8\u4e3a 2022 \u5e74\uff09\u7684\u793a\u8303\u66f2\uff0c\u4ed6\u6700\u540e\u7528\u5409\u4ed6\u5f39\u4e86\u6210\u54c1\uff0cstems \u5728\u4ed6\u7684 Patreon\u3002\u89c6\u9891\u6ca1\u6709\u622a\u56fe\u548c\u97f3\u540d\uff0c\u9644\u5e26\u7684 MIDI \u662f\u6309\u5b57\u5e55\u8fd1\u4f3c\u8bbe\u8ba1\u7684\u6392\u5217\u548c\u8282\u594f\uff0c\u901f\u5ea6 90 BPM \u4e3a\u63a8\u5b9a\uff0c\u9f13\u4e3a\u5360\u4f4d\u3002"
   }
  ],
  "audio": {
@@ -5858,6 +5893,35 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
      "name": "Wormhole six places - voicing study.mid",
      "label": "\u4e94\u6b65 voicing \u5bf9\u7167 MIDI",
      "note": "MIDI \u00b7 8 \u5c0f\u8282\uff1a\u9ed8\u8ba4 \u2192 E\u266d/E \u4e0a\u79fb \u2192 G \u4e0a\u79fb \u2192 F \u4e0b\u79fb",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "jaron-dorian-two": {
+   "song": "Jaron Lopez - Dorian two chords (Fm9 / Ebm9)",
+   "files": [
+    {
+     "path": "audio/jaron-dorian-two/dorian-groove-study.mp3",
+     "name": "Dorian two chords - study render.mp3",
+     "label": "\u6574\u6bb5\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 4 \u5c0f\u8282\u5faa\u73af\u4e09\u904d \u00b7 \u7ea6 32 \u79d2 \u00b7 \u8fd1\u4f3c\u590d\u539f\uff0c\u9f13\u662f\u5360\u4f4d\u7684",
+     "mb": 0.73,
+     "play": true
+    },
+    {
+     "path": "audio/jaron-dorian-two/dorian-full-arrangement.mid",
+     "name": "Dorian two chords - full arrangement.mid",
+     "label": "\u5b8c\u6574 MIDI\uff08\u548c\u5f26 / \u65cb\u5f8b / \u5f26\u4e50 / \u8d1d\u65af / \u5360\u4f4d\u9f13\uff09",
+     "note": "MIDI \u00b7 90 BPM\uff08\u63a8\u5b9a\uff09 \u00b7 4 \u5c0f\u8282 \u00b7 \u6309\u5b57\u5e55\u8fd1\u4f3c",
+     "mb": 0.01,
+     "play": false
+    },
+    {
+     "path": "audio/jaron-dorian-two/dorian-voicing-study.mid",
+     "name": "Dorian two chords - voicing study.mid",
+     "label": "\u5171\u540c\u97f3\u4e0e\u6392\u5217\u5bf9\u7167 MIDI",
+     "note": "MIDI \u00b7 Cm7 / D\u266dm7 + E\u266d B\u266d \u957f\u97f3\uff0c\u518d\u52a0 Fm9 A / B\u3001E\u266dm9\u3001Em9",
      "mb": 0.01,
      "play": false
     }
