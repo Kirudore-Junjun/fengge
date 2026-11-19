@@ -5450,6 +5450,44 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "melody-from-chord-mute"
    ],
    "facts": "Jaron Lopez \u4e00\u652f\u65e9\u671f\u6559\u7a0b\uff08\u6309\u89c6\u9891\u91cc\u5ba3\u5e03\u7684 beat battle \u65e5\u671f\u63a8\u4e3a 2022 \u5e74\uff09\u7684\u793a\u8303\u66f2\uff0c\u4ed6\u6700\u540e\u7528\u5409\u4ed6\u5f39\u4e86\u6210\u54c1\uff0cstems \u5728\u4ed6\u7684 Patreon\u3002\u89c6\u9891\u6ca1\u6709\u622a\u56fe\u548c\u97f3\u540d\uff0c\u9644\u5e26\u7684 MIDI \u662f\u6309\u5b57\u5e55\u8fd1\u4f3c\u8bbe\u8ba1\u7684\u6392\u5217\u548c\u8282\u594f\uff0c\u901f\u5ea6 90 BPM \u4e3a\u63a8\u5b9a\uff0c\u9f13\u4e3a\u5360\u4f4d\u3002"
+  },
+  {
+   "id": "jaron-voicing-stairs",
+   "t": "voicing \u697c\u68af \u00b7 \u793a\u8303\uff08Em11 \u2194 Am11\uff09",
+   "a": "Jaron Lopez",
+   "al": "Make Chords That Vibe Using Voicings",
+   "y": null,
+   "style": "base",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "voicing-stairs"
+   ],
+   "feel": "\u53ea\u6709\u4e24\u4e2a\u548c\u5f26\uff0c\u5374\u50cf\u4e00\u76f4\u5728\u5f80\u4e0a\u8d70\uff1b\u9f13\u548c\u8d1d\u65af\u50cf\u6392\u7ec3\u8fc7\u5f88\u591a\u6b21\u7684\u4e50\u961f\uff0c\u8ddf\u7740\u94a2\u7434\u6bcf\u4e00\u4e2a\u5207\u5206\u3002",
+   "hear": "\u9876\u4e0a\u7684\u97f3\u6bcf\u4e24\u5c0f\u8282\u4e0a\u4e00\u7ea7\uff1aF\u266f\u3001G\u3001A\u3001B\uff1b\u548c\u5f26\u4e4b\u95f4\u6709\u4e00\u4e32\u5c0f\u88c5\u9970\u628a\u9876\u97f3\u63a5\u4e0a\u53bb\uff1b\u6700\u540e\u4e00\u5c0f\u8282\u65cb\u5f8b\u722c\u5230\u6700\u9ad8\u518d\u843d\u56de\u5f00\u5934\uff1bride \u51e0\u4e4e\u4e00\u76f4\u5728\u5341\u516d\u5206\u4e0a\uff0c\u4f46\u5728\u94a2\u7434\u957f\u97f3\u5904\u7528\u9572\u8fb9\u7838\u4e00\u4e0b\uff1b\u8d1d\u65af\u5728 Am11 \u4e0a\u4e5f\u5e38\u5f39 E\u3002",
+   "harm": "Em11 | Em11 | Am11 | Am11 | Em11 | Em11 | Am11 | Am11\uff08E \u5c0f\u8c03 i \u2013 iv\uff0c\u56db\u4e2a\u6392\u5217\uff09\uff1b\u9876\u97f3 F\u266f3 G3 A3 B3",
+   "kw": [
+    "voicing",
+    "\u9876\u97f3\u697c\u68af",
+    "\u76f8\u90bb\u97f3",
+    "\u5207\u5206",
+    "\u7740\u9646\u70b9",
+    "\u6301\u7eed\u97f3",
+    "house",
+    "122 BPM"
+   ],
+   "tech": [
+    "root-down-float",
+    "top-note-first",
+    "top-note-enclosure",
+    "save-the-blur",
+    "top-note-staircase",
+    "fills-from-voicing",
+    "landing-points",
+    "kick-tuck-roll",
+    "bass-pedal-on-iv",
+    "bass-neighbor-morsel"
+   ],
+   "facts": "Jaron Lopez \u6559\u7a0b\u91cc\u7684\u793a\u8303\u6bb5\u843d\uff0c\u4e0d\u662f\u6b63\u5f0f\u53d1\u884c\u66f2\u76ee\uff1a122 BPM\u30018 \u5c0f\u8282\u3002\u89c6\u9891\u6ca1\u6709\u622a\u56fe\uff0c\u9644\u5e26 MIDI \u7684\u548c\u5f26\u6392\u5217\u6309\u5b57\u5e55\u9010\u6b65\u8fd8\u539f\uff08\u53ef\u4fe1\uff09\uff1b\u9f13\u548c\u8d1d\u65af\u6309\u5b57\u5e55\u8fd1\u4f3c\u91cd\u5efa\uff0c\u529b\u5ea6\u6570\u503c\u662f\u7b14\u8bb0\u8bbe\u5b9a\u7684\u3002"
   }
  ],
  "audio": {
@@ -5922,6 +5960,35 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
      "name": "Dorian two chords - voicing study.mid",
      "label": "\u5171\u540c\u97f3\u4e0e\u6392\u5217\u5bf9\u7167 MIDI",
      "note": "MIDI \u00b7 Cm7 / D\u266dm7 + E\u266d B\u266d \u957f\u97f3\uff0c\u518d\u52a0 Fm9 A / B\u3001E\u266dm9\u3001Em9",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "jaron-voicing-stairs": {
+   "song": "Jaron Lopez - Voicing stairs (Em11 / Am11)",
+   "files": [
+    {
+     "path": "audio/jaron-voicing-stairs/voicing-groove-study.mp3",
+     "name": "Voicing stairs - study render.mp3",
+     "label": "\u6574\u6bb5\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 8 \u5c0f\u8282\u5faa\u73af\u4e24\u904d \u00b7 \u7ea6 31 \u79d2 \u00b7 \u9f13\u548c\u8d1d\u65af\u4e3a\u8fd1\u4f3c",
+     "mb": 0.72,
+     "play": true
+    },
+    {
+     "path": "audio/jaron-voicing-stairs/voicing-full-arrangement.mid",
+     "name": "Voicing stairs - full arrangement.mid",
+     "label": "\u5b8c\u6574 MIDI\uff08\u94a2\u7434 / \u88c5\u9970 / \u8d1d\u65af / \u9f13\uff09",
+     "note": "MIDI \u00b7 122 BPM \u00b7 8 \u5c0f\u8282 \u00b7 GM \u9f13\u4f4d",
+     "mb": 0.01,
+     "play": false
+    },
+    {
+     "path": "audio/jaron-voicing-stairs/voicing-voicing-study.mid",
+     "name": "Voicing stairs - voicing study.mid",
+     "label": "\u6392\u5217\u5bf9\u7167 MIDI",
+     "note": "MIDI \u00b7 6 \u5c0f\u8282\uff1a\u4e24\u4e2a\u9ed8\u8ba4\u6392\u5217 + \u56db\u4e2a\u6700\u7ec8\u6392\u5217",
      "mb": 0.01,
      "play": false
     }
