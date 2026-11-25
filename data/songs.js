@@ -5875,6 +5875,155 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "classical-suspension"
    ],
    "facts": "\u7b14\u8bb0\u81ea\u5df1\u5199\u7684\u7ec3\u8033\u6750\u6599\uff0c\u4e0d\u662f\u89c6\u9891\u5185\u5bb9\u3002100 BPM\uff0c37 \u5c0f\u8282\uff1b\u6e32\u67d3\u662f\u7b80\u6613\u5408\u6210\u3002"
+  },
+  {
+   "id": "sk-requiem",
+   "t": "Requiem of Shield Knight",
+   "a": "Shovel Knight\uff08Jake Kaufman\uff09",
+   "al": "Shovel Knight",
+   "y": 2014,
+   "style": "game",
+   "role": "\u9010\u66f2\u542c\u6790",
+   "src": [
+    "shovel-knight"
+   ],
+   "feel": "\u6c89\u91cd\u3001\u5931\u53bb\uff0c\u4f11\u606f\u7684\u5730\u65b9\u4e5f\u4e0d\u5b89\u5b81\u3002",
+   "hear": "\u4e3b\u548c\u5f26 F\u266fm(add2) \u91cc G\u266f \u7d27\u8d34 A\uff0c\u6bcf\u6b21\u56de\u5230 i \u90fd\u6709\u534a\u97f3\u6469\u64e6\uff1b\u5176\u4ed6\u548c\u5f26\u5806\u6ee1\u5ef6\u4f38\u97f3\uff0c\u65cb\u5f8b\u548c\u5185\u58f0\u90e8\u8f6e\u6d41\u7ad9\u5ef6\u4f38\u97f3\uff1b\u65cb\u5f8b\u4ece\u516b\u5ea6\u5927\u8df3 + \u7ea7\u8fdb\u56de\u843d\u7684\u4e09\u97f3\u52a8\u673a\u957f\u51fa\u6765\uff0c\u7ed3\u5c3e\u505c\u5728 5\u3002",
+   "harm": "F\u266f \u5c0f\u8c03\uff1aDmaj7 \u2013 Bm6 \u2013 F\u266fm(add2) / Bm9 \u2013 G\u266f\u00f87 \u2013 A6/9 \u2013 F\u266fm(add2)",
+   "kw": [
+    "m(add2)",
+    "\u534a\u97f3\u6469\u64e6",
+    "\u5ef6\u4f38\u97f3\u63a5\u529b",
+    "\u4eb2\u621a\u548c\u5f26",
+    "\u516b\u5ea6\u5927\u8df3"
+   ],
+   "tech": [
+    "minor-add2-serious",
+    "semitone-on-tonic",
+    "extension-relay",
+    "relative-chord-swap",
+    "triad-root-outline",
+    "octave-leap-motif",
+    "end-on-five"
+   ],
+   "facts": "\u4f5c\u66f2\uff1aJake Kaufman\u3002\u94f2\u5b50\u9a91\u58eb\u7684\u5669\u68a6\u573a\u666f\uff08\u76fe\u9a91\u58eb\u5760\u843d\uff09\u3002"
+  },
+  {
+   "id": "sk-intro",
+   "t": "\u5f00\u573a\uff08\u547d\u8fd0\u4e4b\u5854\uff09",
+   "a": "Shovel Knight\uff08Jake Kaufman\uff09",
+   "al": "Shovel Knight",
+   "y": 2014,
+   "style": "game",
+   "role": "\u9010\u66f2\u542c\u6790",
+   "src": [
+    "shovel-knight"
+   ],
+   "feel": "\u4e0d\u771f\u5b9e\u3001\u50cf\u68a6\uff0c\u60b2\u5267\u53d1\u751f\u7684\u4e00\u77ac\u3002",
+   "hear": "\u4e3b\u9898\u7b2c\u4e00\u6b21\u51fa\u73b0\uff0c\u914d\u4e24\u4e2a\u76f8\u9694\u5168\u97f3\u7684\u5c5e\u4e5d\u964d\u4e94\u548c\u5f26\uff0c\u5168\u90e8\u843d\u5728\u5168\u97f3\u9636\u91cc\uff1b\u65cb\u5f8b\u7684\u97f3\u88ab\u6539\u5199\u6765\u9002\u5e94\u548c\u58f0\u3002",
+   "harm": "E\u266d9(\u266d5) \u2192 D\u266d9(\u266d5)\uff0c\u4f4e\u97f3\u516b\u5206\u91cd\u590d",
+   "kw": [
+    "\u5168\u97f3\u9636",
+    "9\u266d5",
+    "\u68a6\u5883"
+   ],
+   "tech": [
+    "whole-tone-dream",
+    "whole-tone-lick",
+    "leitmotif-state-map"
+   ],
+   "facts": "\u4f5c\u66f2\uff1aJake Kaufman\u3002\u66f2\u540d\u672a\u6838\u5bf9\u3002"
+  },
+  {
+   "id": "sk-starlit-wilds",
+   "t": "Starlit / Starlight Wilds\uff08\u8425\u706b\u66f2\uff09",
+   "a": "Shovel Knight\uff08Jake Kaufman\uff09",
+   "al": "Shovel Knight",
+   "y": 2014,
+   "style": "game",
+   "role": "\u9010\u66f2\u542c\u6790",
+   "src": [
+    "shovel-knight"
+   ],
+   "feel": "\u6e29\u6696\u3001\u6709\u5e0c\u671b\uff0c\u4f46\u7f3a\u4e86\u4e00\u5757\u3002",
+   "hear": "\u4e3b\u9898\u79fb\u5230 F\u266f \u5927\u8c03\uff0c\u501f \u266dVI\uff08Dmaj7\u266f11\uff09\u3001iv\uff08Bm13\uff09\u8ba9\u65cb\u5f8b\u4e00\u97f3\u4e0d\u6539\uff1b\u4e3b\u548c\u5f26\u5185\u58f0\u90e8\u5e26 \u266d6\uff08D\u266e\uff09\uff1b\u53e5\u5c3e C\u266f\u2013B \u5c0f\u98a4\u97f3\uff1bG/C\u266f \u56de\u5230\u5f00\u5934\u3002",
+   "harm": "F\u266f \u5927\u8c03\uff1aDmaj7(\u266f11)/A \u2013 Dmaj7(\u266f11)/F\u266f \u2013 C\u266fm7 / Bm13 \u2026 F\u266f(\u266d6)/A\u266f \u2013 G/C\u266f",
+   "kw": [
+    "\u5e73\u884c\u5927\u8c03",
+    "\u501f \u266dVI \u4e0e iv",
+    "\u266d6",
+    "\u659c\u6760\u548c\u5f26"
+   ],
+   "tech": [
+    "theme-major-borrow",
+    "tonic-flat6-shadow",
+    "slash-bII-over-5",
+    "borrow-major-from-minor"
+   ],
+   "facts": "\u4f5c\u66f2\uff1aJake Kaufman\u3002\u5173\u5361\u4e4b\u95f4\u8425\u706b\u4f11\u606f\u3001\u4e5f\u662f\u8fc7\u5173\u97f3\u4e50\u3002\u5b57\u5e55\u6709 Starllet / Starlight \u4e24\u79cd\u62fc\u6cd5\uff0c\u51c6\u786e\u66f2\u540d\u672a\u6838\u5bf9\u3002"
+  },
+  {
+   "id": "sk-betrayer",
+   "t": "The Betrayer",
+   "a": "Shovel Knight\uff08Jake Kaufman\uff09",
+   "al": "Shovel Knight",
+   "y": 2014,
+   "style": "game",
+   "role": "\u9010\u66f2\u542c\u6790",
+   "src": [
+    "shovel-knight"
+   ],
+   "feel": "\u71c3\u3001\u5feb\u3001\u8fc7\u5c71\u8f66\uff1a\u76fe\u9a91\u58eb\u56de\u5230\u8eab\u8fb9\u3002",
+   "hear": "\u5f00\u5934 i\u2013\u266dII\u2013\u266dIII\u2013IV \u6302\u56db\u548c\u5f26\u5728 E\u266d \u6301\u7eed\u4e0a\u5e73\u79fb\uff0c\u516d\u8fde\u97f3\u7436\u97f3\uff1b\u4e3b\u9898\u4ee5\u6700\u6b22\u5feb\u7684\u7248\u672c\u51fa\u73b0\u5728 i\u2013\u5927 IV vamp \u4e0a\uff1b\u266dIImaj7 \u2192 \u266dviim7 \u56de\u5934\u53d8\u6210 E \u8c03\u7684 I \u2192 vi\uff0c\u7ecf ii \u2013 \u5c0f iv \u2013 Imaj7 \u8f6c\u8c03\u540e\u518d\u6ed1\u56de\uff1b3/4 \u4e0a\u7684\u9644\u70b9\u516b\u5206\u590d\u8282\u594f\u3002",
+   "harm": "E\u266d \u5c0f\u8c03\uff1aE\u266dsus4 F\u266dsus4 G\u266dsus4 A\u266dsus4 / E\u266dm11 \u2013 A\u266d/E\u266d / F\u266dmaj7\u266f11 \u2013 D\u266dm7 \u2013 F\u266fm11 \u2013 Am6 \u2013 Emaj7\u266f11 \u2013 E\u266dm7 \u2013 F\u266d6 E\u266dm C\u266d A\u266d",
+   "kw": [
+    "\u6302\u56db\u5e73\u79fb",
+    "Dorian",
+    "Phrygian \u266dII",
+    "\u534a\u97f3\u8f6c\u8c03",
+    "\u590d\u8282\u594f"
+   ],
+   "tech": [
+    "sus-chromatic-planing",
+    "dorian-enchant",
+    "bII-to-bvii-extension",
+    "semitone-key-pivot",
+    "dotted-8th-over-34",
+    "ornament-to-riff"
+   ],
+   "facts": "\u4f5c\u66f2\uff1aJake Kaufman\u3002\u6700\u7ec8\u6218\uff1a\u5bf9\u62a4\u8eab\u7b26\u6076\u9b54\u3002"
+  },
+  {
+   "id": "shovel-knight-study",
+   "t": "\u76fe\u9a91\u58eb\u4e3b\u9898 \u00b7 \u548c\u58f0\u9aa8\u67b6\u7ec3\u4e60",
+   "a": "\u98ce\u683c\u56fe\u8c31\u7ec3\u4e60",
+   "al": "Shovel Knight \u624b\u518c\uff08\u7b14\u8bb0\u9644\u5e26\uff09",
+   "y": null,
+   "style": "game",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "shovel-knight"
+   ],
+   "feel": "\u4e03\u6bb5\u5bf9\u7167\uff1am9 \u4e0e m(add2)\u3001Requiem \u9aa8\u67b6\u3001\u5168\u97f3\u9636\u68a6\u5883\u3001\u5927\u8c03\u7248\u3001\u6302\u56db\u5e73\u79fb\u3001Dorian vamp\u3001\u534a\u97f3\u8f6c\u8c03\u3002",
+   "hear": "\u6bcf\u6bb5\u5f00\u5934\u6709 marker\uff1bA \u6bb5\u540c\u4e00\u4f4e\u97f3\u4e0a\u4e09\u4e2a\u914d\u7f6e\uff1bE \u6bb5 Arp \u8f68\u662f\u516d\u8fde\u97f3\u7436\u97f3\uff1bG \u6bb5 F\u266d \u6309\u7b49\u97f3\u5199\u6210 E\u3002",
+   "harm": "F\u266fm / F\u266fm9 / F\u266fm(add2)\uff1bDmaj7 Bm6 F\u266fm(add2) / Bm9 G\u266f\u00f87 A6/9\uff1bE\u266d9\u266d5 D\u266d9\u266d5\uff1bF\u266f Dmaj7\u266f11 Bm13 F\u266f(\u266d6) G/C\u266f\uff1bisus4\u2013\u266dIIsus4\u2013\u266dIIIsus4\u2013IVsus4\uff1bE\u266dm11 A\u266d/E\u266d\uff1bF\u266dmaj7\u266f11 D\u266dm7 F\u266fm11 Am6 Emaj7\u266f11 E\u266dm7",
+   "kw": [
+    "\u548c\u58f0\u9aa8\u67b6",
+    "m(add2)",
+    "\u5168\u97f3\u9636",
+    "\u501f\u7528\u548c\u5f26",
+    "\u67a2\u7ebd\u8f6c\u8c03"
+   ],
+   "tech": [
+    "minor-add2-serious",
+    "relative-chord-swap",
+    "whole-tone-dream",
+    "theme-major-borrow",
+    "sus-chromatic-planing",
+    "dorian-enchant",
+    "semitone-key-pivot"
+   ],
+   "facts": "\u7b14\u8bb0\u81ea\u5df1\u5199\u7684\u7ec3\u4e60\u6750\u6599\uff0c\u53ea\u6709\u548c\u5f26\u4e0e\u901a\u7528\u8282\u594f\u578b\uff0c\u6ca1\u6709\u4efb\u4f55\u4e00\u9996\u7684\u65cb\u5f8b\u3002100 BPM\uff0c47 \u5c0f\u8282\uff1b\u6e32\u67d3\u662f\u7b80\u6613\u5408\u6210\u3002"
   }
  ],
  "audio": {
@@ -6447,6 +6596,27 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
      "name": "Analysis basics - ear training.mid",
      "label": "\u7ec3\u8033 MIDI\uff08Drone / Chords / Melody \u4e09\u8f68\uff09",
      "note": "MIDI \u00b7 100 BPM \u00b7 37 \u5c0f\u8282 \u00b7 \u6bcf\u6bb5\u6709 marker",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "shovel-knight-study": {
+   "song": "Shovel Knight - harmony skeleton (study)",
+   "files": [
+    {
+     "path": "audio/shovel-knight-study/shovel-knight-harmony-skeleton.mp3",
+     "name": "Shovel Knight harmony skeleton - study render.mp3",
+     "label": "\u4e03\u6bb5\u548c\u58f0\u9aa8\u67b6\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 47 \u5c0f\u8282 \u00b7 \u7ea6 1 \u5206 53 \u79d2",
+     "mb": 2.77,
+     "play": true
+    },
+    {
+     "path": "audio/shovel-knight-study/shovel-knight-harmony-skeleton.mid",
+     "name": "Shovel Knight harmony skeleton.mid",
+     "label": "\u548c\u58f0\u9aa8\u67b6 MIDI\uff08Chords / Bass / Arp \u4e09\u8f68\uff09",
+     "note": "MIDI \u00b7 100 BPM \u00b7 47 \u5c0f\u8282 \u00b7 \u6bcf\u6bb5\u6709 marker",
      "mb": 0.01,
      "play": false
     }
