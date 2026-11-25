@@ -5796,6 +5796,85 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
     "triplet-vs-16th"
    ],
    "facts": "\u7b14\u8bb0\u81ea\u5df1\u5199\u7684\u7ec3\u4e60\u6750\u6599\uff0c\u53ea\u6709\u548c\u5f26\u4e0e\u901a\u7528\u8282\u594f\u578b\uff0c\u6ca1\u6709\u4efb\u4f55\u4e00\u9996\u7684\u65cb\u5f8b\u3002100 BPM\uff0c42 \u5c0f\u8282\uff1b\u6e32\u67d3\u662f\u7b80\u6613\u5408\u6210\u3002"
+  },
+  {
+   "id": "sms-delfino-plaza",
+   "t": "Delfino Plaza",
+   "a": "Super Mario \u7cfb\u5217",
+   "al": "Super Mario Sunshine",
+   "y": 2002,
+   "style": "game",
+   "role": "\u542c\u8fa8\u4f8b\u5b50",
+   "src": [
+    "analysis-basics"
+   ],
+   "feel": "\u5ea6\u5047\u5c0f\u5c9b\u3001\u9633\u5149\u3001\u8f7b\u677e\u3002",
+   "hear": "\u89c6\u9891\u62ff\u5b83\u5f53\u201cA \u8c03\u201d\u7684\u4f8b\u5b50\uff1a\u542c\u65cb\u5f8b\u843d\u56de A \u65f6\u90a3\u79cd\u5230\u5bb6\u7684\u7a33\u5b9a\u611f\u3002",
+   "harm": "A \u5927\u8c03\uff08\u89c6\u9891\u7684\u8bf4\u6cd5\uff09",
+   "kw": [
+    "\u4e3b\u97f3",
+    "1\u0302",
+    "\u542c\u7ea7\u6570"
+   ],
+   "tech": [
+    "scale-degree-hearing",
+    "transpose-to-compare"
+   ],
+   "facts": "\u4f5c\u66f2\uff1a\u8fd1\u85e4\u6d69\u6cbb\u3001\u7530\u4e2d\u3057\u306e\u3076\uff08Shinobu Tanaka\uff09\uff08\u7b14\u8bb0\u8865\u5145\uff0c\u672a\u9010\u66f2\u6838\u5bf9\uff09\u3002\u539f\u8c03\u662f\u89c6\u9891\u7684\u8bf4\u6cd5\u3002"
+  },
+  {
+   "id": "smb-ground-theme",
+   "t": "Ground Theme\uff08\u5730\u4e0a BGM\uff09",
+   "a": "Super Mario \u7cfb\u5217",
+   "al": "Super Mario Bros.",
+   "y": 1985,
+   "style": "game",
+   "role": "\u542c\u8fa8\u4f8b\u5b50",
+   "src": [
+    "analysis-basics"
+   ],
+   "feel": "\u8df3\u8dc3\u3001\u660e\u5feb\uff0c\u4e00\u542c\u5c31\u662f\u9a6c\u529b\u6b27\u3002",
+   "hear": "\u89c6\u9891\u62ff\u5b83\u5f53\u201cC \u8c03\u201d\u7684\u4f8b\u5b50\uff1aC \u8c03\u91cc\u7684 C \u548c Delfino Plaza \u91cc\u7684 A \u542c\u8d77\u6765\u662f\u540c\u4e00\u79cd\u7a33\u5b9a\u611f\uff0c\u90fd\u662f 1\u0302\u3002",
+   "harm": "C \u5927\u8c03\uff08\u89c6\u9891\u7684\u8bf4\u6cd5\uff09",
+   "kw": [
+    "\u4e3b\u97f3",
+    "1\u0302",
+    "\u542c\u7ea7\u6570"
+   ],
+   "tech": [
+    "scale-degree-hearing",
+    "transpose-to-compare"
+   ],
+   "facts": "\u4f5c\u66f2\uff1a\u8fd1\u85e4\u6d69\u6cbb\u3002"
+  },
+  {
+   "id": "analysis-basics-study",
+   "t": "\u5206\u6790\u7528\u7684\u6570\u5b57 \u00b7 \u7ec3\u8033\u7d20\u6750",
+   "a": "\u98ce\u683c\u56fe\u8c31\u7ec3\u4e60",
+   "al": "\u5206\u6790\u7528\u7684\u6570\u5b57\uff08\u7b14\u8bb0\u9644\u5e26\uff09",
+   "y": null,
+   "style": "base",
+   "role": "\u8ddf\u505a\u5de5\u7a0b",
+   "src": [
+    "analysis-basics"
+   ],
+   "feel": "\u4e00\u6bb5\u4e00\u6bb5\u7684\u7ec3\u8033\u9898\uff1a\u7ea7\u6570\u3001\u8c03\u5185\u548c\u5f26\u3001\u79fb\u8c03\u3001\u6302\u7559\u3001\u8c1c\u9898\u548c\u5f26\u3002",
+   "hear": "\u6bcf\u6bb5\u5f00\u5934\u6709 marker\uff1a\u5148\u5728 C \u8c03 drone \u4e0a\u5f39 1\u0302\u20137\u0302\u20131\u0302\uff0c\u518d\u79fb\u5230 A \u8c03\uff1bC\u3001A \u4e24\u8c03\u5404\u4e03\u4e2a\u8c03\u5185\u4e09\u548c\u5f26\uff1bI\u2013V\u2013vi\u2013IV \u5728 C \u548c A\uff1b\u4e09\u7ec4 4\u20133 \u6302\u7559\uff1b\u6700\u540e G A\u266d B\u266d E \u5206\u522b\u4ee5 G\u3001E \u4e3a\u6700\u4f4e\u97f3\u3002",
+   "harm": "I ii iii IV V vi vii\u00b0\uff1bI\u2013V\u2013vi\u2013IV\uff1bsus4 \u2192 \u5927\u4e09",
+   "kw": [
+    "\u7ec3\u8033",
+    "\u7ea7\u6570",
+    "\u8c03\u5185\u548c\u5f26",
+    "4\u20133 \u6302\u7559"
+   ],
+   "tech": [
+    "scale-degree-hearing",
+    "roman-numeral-analysis",
+    "transpose-to-compare",
+    "chord-tone-numbers",
+    "classical-suspension"
+   ],
+   "facts": "\u7b14\u8bb0\u81ea\u5df1\u5199\u7684\u7ec3\u8033\u6750\u6599\uff0c\u4e0d\u662f\u89c6\u9891\u5185\u5bb9\u3002100 BPM\uff0c37 \u5c0f\u8282\uff1b\u6e32\u67d3\u662f\u7b80\u6613\u5408\u6210\u3002"
   }
  ],
  "audio": {
@@ -6347,6 +6426,27 @@ window.ATLAS=window.ATLAS||{}; ATLAS.songs={
      "name": "Zelda harmony skeleton.mid",
      "label": "\u548c\u58f0\u9aa8\u67b6 MIDI\uff08Chords / Bass / Pulse \u4e09\u8f68\uff09",
      "note": "MIDI \u00b7 100 BPM \u00b7 42 \u5c0f\u8282 \u00b7 \u6bcf\u6bb5\u6709 marker",
+     "mb": 0.01,
+     "play": false
+    }
+   ]
+  },
+  "analysis-basics-study": {
+   "song": "Analysis basics - ear training (study)",
+   "files": [
+    {
+     "path": "audio/analysis-basics-study/analysis-basics-ear.mp3",
+     "name": "Analysis basics - ear training.mp3",
+     "label": "\u7ec3\u8033\u7d20\u6750\u8bd5\u542c\uff08\u7b80\u6613\u5408\u6210\u6e32\u67d3\uff09",
+     "note": "MP3 192 kbps \u00b7 37 \u5c0f\u8282 \u00b7 \u7ea6 1 \u5206 30 \u79d2",
+     "mb": 2.18,
+     "play": true
+    },
+    {
+     "path": "audio/analysis-basics-study/analysis-basics-ear.mid",
+     "name": "Analysis basics - ear training.mid",
+     "label": "\u7ec3\u8033 MIDI\uff08Drone / Chords / Melody \u4e09\u8f68\uff09",
+     "note": "MIDI \u00b7 100 BPM \u00b7 37 \u5c0f\u8282 \u00b7 \u6bcf\u6bb5\u6709 marker",
      "mb": 0.01,
      "play": false
     }
